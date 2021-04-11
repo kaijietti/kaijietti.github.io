@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>mdnice与hexo的兼容</title>
+    <url>/2021/02/26/mdnice%E4%B8%8Ehexo%E7%9A%84%E5%85%BC%E5%AE%B9/</url>
+    <content><![CDATA[<blockquote>
+<p>引用内行内代码测试 <code>git push</code></p>
+</blockquote>
+<p>列表代码测试：</p>
+<ul>
+<li><code>git add .</code></li>
+<li><code>push</code></li>
+</ul>
+<p>行内代码样式：<code>bash</code></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">&quot;图片描述&quot;</span>](<span class="link">图片链接</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://files.mdnice.com/logo.svg" alt="图片描述"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[toc]</span><br></pre></td></tr></table></figure>
+<p>[toc]</p>
+<h2 id="1-Markdown-Nice-简介"><a href="#1-Markdown-Nice-简介" class="headerlink" title="1 Markdown Nice 简介"></a>1 Markdown Nice 简介</h2><ul>
+<li>支持自定义样式的 Markdown 编辑器</li>
+<li>支持微信公众号、知乎和稀土掘金</li>
+<li>欢迎扫码回复「排版」加入推文群</li>
+</ul>
+<p><img src="https://files.mdnice.com/pic/cd3ca20c-896f-4cfc-9bdd-c4c58e69ba26.jpg"></p>
+<h2 id="2-主题"><a href="#2-主题" class="headerlink" title="2 主题"></a>2 主题</h2><p><strong><a href="https://product.mdnice.com/themes/">https://product.mdnice.com/themes/</a></strong></p>
+<p>欢迎提交主题，提供更多文章示例~~</p>
+<h2 id="3-通用语法"><a href="#3-通用语法" class="headerlink" title="3 通用语法"></a>3 通用语法</h2><h3 id="3-1-标题"><a href="#3-1-标题" class="headerlink" title="3.1 标题"></a>3.1 标题</h3><p>在文字写书写不同数量的<code>#</code>可以完成不同的标题。</p>
+<h3 id="3-2-无序列表"><a href="#3-2-无序列表" class="headerlink" title="3.2 无序列表"></a>3.2 无序列表</h3><p>无序列表的使用，在符号<code>-</code>后加空格使用。如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 无序列表 1</span><br><span class="line"><span class="bullet">-</span> 无序列表 2</span><br><span class="line"><span class="bullet">-</span> 无序列表 3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>无序列表 1</li>
+<li>无序列表 2</li>
+<li>无序列表 3</li>
+</ul>
+<p>如果要控制列表的层级，则需要在符号<code>-</code>前使用空格。如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 无序列表 1</span><br><span class="line"><span class="bullet">-</span> 无序列表 2</span><br><span class="line"><span class="bullet">  -</span> 无序列表 2.1</span><br><span class="line"><span class="bullet">  -</span> 无序列表 2.2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>无序列表 1</li>
+<li>无序列表 2<ul>
+<li>无序列表 2.1</li>
+<li>无序列表 2.2</li>
+</ul>
+</li>
+</ul>
+<p><strong>由于微信原因，最多支持到二级列表</strong>。</p>
+<h3 id="3-3-有序列表"><a href="#3-3-有序列表" class="headerlink" title="3.3 有序列表"></a>3.3 有序列表</h3><p>有序列表的使用，在数字及符号<code>.</code>后加空格后输入内容，如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 有序列表 1</span><br><span class="line"><span class="bullet">2.</span> 有序列表 2</span><br><span class="line"><span class="bullet">3.</span> 有序列表 3</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>有序列表 1</li>
+<li>有序列表 2</li>
+<li>有序列表 3</li>
+</ol>
+<h3 id="3-4-粗体和斜体"><a href="#3-4-粗体和斜体" class="headerlink" title="3.4 粗体和斜体"></a>3.4 粗体和斜体</h3><p>粗体的使用是在需要加粗的文字前后各加两个<code>*</code>。</p>
+<p>而斜体的使用则是在需要斜体的文字前后各加一个<code>*</code>。</p>
+<p>如果要使用粗体和斜体，那么就是在需要操作的文字前后加三个<code>*</code>。如下：</p>
+<p><strong>这个是粗体</strong></p>
+<p><em>这个是斜体</em></p>
+<p><strong><em>这个是粗体加斜体</em></strong></p>
+<p>注：由于 commonmark 标准，可能会导致加粗与想象不一致，如下</p>
+<p><strong>今天天气好晴朗，</strong>处处好风光。</p>
+<blockquote>
+<p>这个是正常现象，请参考<a href="https://github.com/markdown-it/markdown-it/issues/410" title="加粗 Issue">加粗 Issue</a>。在 hexo 上是可以的。</p>
+</blockquote>
+<h3 id="3-5-链接"><a href="#3-5-链接" class="headerlink" title="3.5 链接"></a>3.5 链接</h3><p>微信公众号仅支持公众号文章链接，即域名为<code>https://mp.weixin.qq.com/</code>的合法链接。使用方法如下所示：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">// 链接跳转</span><br><span class="line">[<span class="string">你是《未来世界的幸存者》么？</span>](<span class="link">https://mp.weixin.qq.com/s/s5IhxV2ooX3JN_X416nidA</span>)</span><br><span class="line">// 个人链接</span><br><span class="line">[<span class="string">我的博客</span>](<span class="link">https://kaijietti.gitee.io</span>)</span><br><span class="line">// 脚注</span><br><span class="line">[<span class="string">并发的艺术</span>](<span class="link">https://xxx &quot;并发的艺术&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><a href="https://mp.weixin.qq.com/s/s5IhxV2ooX3JN_X416nidA">你是《未来世界的幸存者》么？</a></p>
+<p><a href="https://kaijietti.gitee.io/">我的博客</a></p>
+<p><a href="https://xxx/" title="并发的艺术">并发的艺术</a></p>
+<h3 id="3-6-引用"><a href="#3-6-引用" class="headerlink" title="3.6 引用"></a>3.6 引用</h3><p>引用的格式是在符号 <code>&gt;</code> 后面书写文字，文字的内容可以包含标题、链接、图片、粗体和斜体等。</p>
+<p>一级引用如下：</p>
+<blockquote>
+<h3 id="一级引用示例"><a href="#一级引用示例" class="headerlink" title="一级引用示例"></a>一级引用示例</h3><p>读一本好书，就是在和高尚的人谈话。 <strong>——歌德</strong></p>
+<p><a href="https://mp.weixin.qq.com/s/lM808MxUu6tp8zU8SBu3sg">Markdown Nice最全功能介绍</a></p>
+<p><img src="https://files.mdnice.com/pic/cd3ca20c-896f-4cfc-9bdd-c4c58e69ba26.jpg" alt="这里写图片描述"></p>
+</blockquote>
+<p>当使用多个 <code>&gt;</code> 符号时，就会变成多级引用</p>
+<p>二级引用如下：</p>
+<blockquote>
+<blockquote>
+<h3 id="二级引用示例"><a href="#二级引用示例" class="headerlink" title="二级引用示例"></a>二级引用示例</h3><p>读一本好书，就是在和高尚的人谈话。 <strong>——歌德</strong></p>
+<p><a href="https://mp.weixin.qq.com/s/lM808MxUu6tp8zU8SBu3sg">Markdown Nice最全功能介绍</a></p>
+<p><img src="https://files.mdnice.com/pic/cd3ca20c-896f-4cfc-9bdd-c4c58e69ba26.jpg" alt="这里写图片描述"></p>
+</blockquote>
+</blockquote>
+<p>三级引用如下：</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<h3 id="三级引用示例"><a href="#三级引用示例" class="headerlink" title="三级引用示例"></a>三级引用示例</h3><p>读一本好书，就是在和高尚的人谈话。 <strong>——歌德</strong></p>
+<p><a href="https://mp.weixin.qq.com/s/lM808MxUu6tp8zU8SBu3sg">Markdown Nice最全功能介绍</a></p>
+<p><img src="https://files.mdnice.com/pic/cd3ca20c-896f-4cfc-9bdd-c4c58e69ba26.jpg" alt="这里写图片描述"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="3-7-分割线"><a href="#3-7-分割线" class="headerlink" title="3.7 分割线"></a>3.7 分割线</h3><p>可以在一行中用三个以上的减号来建立一个分隔线，同时需要在分隔线的上面空一行。如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>效果：</p>
+<hr>
+<h3 id="3-8-删除线"><a href="#3-8-删除线" class="headerlink" title="3.8 删除线"></a>3.8 删除线</h3><p>删除线的使用，在需要删除的文字前后各使用两个<code>~</code>，如下：</p>
+<p><del>这是要被删除的内容。</del></p>
+<h3 id="3-9-表格"><a href="#3-9-表格" class="headerlink" title="3.9 表格"></a>3.9 表格</h3><p>可以使用冒号来定义表格的对齐方式，如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 姓名       | 年龄 |         工作 |</span><br><span class="line">| :--------- | :--: | -----------: |</span><br><span class="line">| 小可爱     |  18  |     吃可爱多 |</span><br><span class="line">| 小小勇敢   |  20  |   爬棵勇敢树 |</span><br><span class="line">| 小小小机智 |  22  | 看一本机智书 |</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="center">年龄</th>
+<th align="right">工作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">小可爱</td>
+<td align="center">18</td>
+<td align="right">吃可爱多</td>
+</tr>
+<tr>
+<td align="left">小小勇敢</td>
+<td align="center">20</td>
+<td align="right">爬棵勇敢树</td>
+</tr>
+<tr>
+<td align="left">小小小机智</td>
+<td align="center">22</td>
+<td align="right">看一本机智书</td>
+</tr>
+</tbody></table>
+<p>宽度过长的表格可以滚动，可在自定义主题中调节宽度：</p>
+<table>
+<thead>
+<tr>
+<th align="left">姓名</th>
+<th align="center">年龄</th>
+<th align="right">工作</th>
+<th align="center">邮箱</th>
+<th align="center">手机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">小可爱</td>
+<td align="center">18</td>
+<td align="right">吃可爱多</td>
+<td align="center"><a href="mailto:&#x6c;&#111;&#118;&#101;&#108;&#x79;&#x40;&#116;&#x65;&#x73;&#116;&#x2e;&#99;&#111;&#109;">&#x6c;&#111;&#118;&#101;&#108;&#x79;&#x40;&#116;&#x65;&#x73;&#116;&#x2e;&#99;&#111;&#109;</a></td>
+<td align="center">18812345678</td>
+</tr>
+<tr>
+<td align="left">小小勇敢</td>
+<td align="center">20</td>
+<td align="right">爬棵勇敢树</td>
+<td align="center"><a href="mailto:&#x62;&#x72;&#x61;&#x76;&#101;&#64;&#116;&#x65;&#x73;&#x74;&#46;&#99;&#111;&#109;">&#x62;&#x72;&#x61;&#x76;&#101;&#64;&#116;&#x65;&#x73;&#x74;&#46;&#99;&#111;&#109;</a></td>
+<td align="center">17712345678</td>
+</tr>
+<tr>
+<td align="left">小小小机智</td>
+<td align="center">22</td>
+<td align="right">看一本机智书</td>
+<td align="center"><a href="mailto:&#115;&#x6d;&#x61;&#x72;&#x74;&#64;&#x74;&#101;&#x73;&#x74;&#46;&#99;&#111;&#109;">&#115;&#x6d;&#x61;&#x72;&#x74;&#64;&#x74;&#101;&#x73;&#x74;&#46;&#99;&#111;&#109;</a></td>
+<td align="center">16612345678</td>
+</tr>
+</tbody></table>
+<h3 id="3-10-图片"><a href="#3-10-图片" class="headerlink" title="3.10 图片"></a>3.10 图片</h3><p>插入图片，如果是行内图片则无图例，否则有图例。<br>支持 jpg、png、gif、svg 等图片格式，<strong>其中 svg 文件仅可在微信公众平台中使用</strong>，svg 文件示例如下：</p>
+<p><img src="https://files.mdnice.com/i-am-svg.svg"></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[ </span><br><span class="line">  ![<span class="string">Markdown Nice 最全功能介绍</span>](<span class="link">https://files.mdnice.com/dance.gif</span>)</span><br><span class="line">](https://mp.weixin.qq.com/s/lM808MxUu6tp8zU8SBu3sg)</span><br></pre></td></tr></table></figure>
+
+<p>图片还可以和链接嵌套使用，能够实现推荐卡片的效果，用法如下：</p>
+<p><a href="https://mp.weixin.qq.com/s/lM808MxUu6tp8zU8SBu3sg"><img src="https://files.mdnice.com/dance.gif" alt="Markdown Nice 最全功能介绍"></a></p>
+<h2 id="4-特殊语法"><a href="#4-特殊语法" class="headerlink" title="4. 特殊语法"></a>4. 特殊语法</h2><h3 id="4-1-脚注"><a href="#4-1-脚注" class="headerlink" title="4.1 脚注"></a>4.1 脚注</h3><blockquote>
+<p>支持平台：微信公众号、知乎。</p>
+</blockquote>
+<p>脚注与链接的区别如下所示：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">链接：[<span class="string">文字</span>](<span class="link">链接</span>)</span><br><span class="line">脚注：[<span class="string">文字</span>](<span class="link">脚注解释 &quot;脚注名字&quot;</span>)</span><br><span class="line">// examples:</span><br><span class="line">[<span class="string">大前端时代</span>](<span class="link">https://en.wikipedia.org/wiki/Front-end_web_development &quot;Front-end web development&quot;</span>)</span><br><span class="line">[<span class="string">全栈工程师</span>](<span class="link">是指掌握多种技能，并能利用多种技能独立完成产品的人。 &quot;什么是全栈工程师&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>有人认为在<a href="https://en.wikipedia.org/wiki/Front-end_web_development" title="Front-end web development">大前端时代</a>的背景下，移动端开发（Android、IOS）将逐步退出历史舞台。</p>
+<p><a href="%E6%98%AF%E6%8C%87%E6%8E%8C%E6%8F%A1%E5%A4%9A%E7%A7%8D%E6%8A%80%E8%83%BD%EF%BC%8C%E5%B9%B6%E8%83%BD%E5%88%A9%E7%94%A8%E5%A4%9A%E7%A7%8D%E6%8A%80%E8%83%BD%E7%8B%AC%E7%AB%8B%E5%AE%8C%E6%88%90%E4%BA%A7%E5%93%81%E7%9A%84%E4%BA%BA%E3%80%82" title="什么是全栈工程师">全栈工程师</a>在业务开发流程中起到了至关重要的作用。</p>
+<p>脚注内容请拉到最下面观看。</p>
+<h3 id="4-2-代码块"><a href="#4-2-代码块" class="headerlink" title="4.2 代码块"></a>4.2 代码块</h3><blockquote>
+<p>支持平台：微信公众号、知乎。</p>
+</blockquote>
+<p>如果在一个行内需要引用代码，只要用反引号引起来就好，如下：</p>
+<p>Use the <code>printf()</code> function.</p>
+<p>在需要高亮的代码块的前一行及后一行使用三个反引号，同时<strong>第一行反引号后面表示代码块所使用的语言</strong>，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// FileName: HelloWorld.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Java 入口程序，程序从此入口</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Hello,World!&quot;</span>); <span class="comment">// 向控制台打印一条语句</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>支持以下语言种类：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash</span><br><span class="line">clojure，cpp，cs，css</span><br><span class="line">dart，dockerfile, diff</span><br><span class="line">erlang</span><br><span class="line">go，gradle，groovy</span><br><span class="line">haskell</span><br><span class="line">java，javascript，json，julia</span><br><span class="line">kotlin</span><br><span class="line">lisp，lua</span><br><span class="line">makefile，markdown，matlab</span><br><span class="line">objectivec</span><br><span class="line">perl，php，python</span><br><span class="line">r，ruby，rust</span><br><span class="line">scala，shell，sql，swift</span><br><span class="line">tex，typescript</span><br><span class="line">verilog，vhdl</span><br><span class="line">xml</span><br><span class="line">yaml</span><br></pre></td></tr></table></figure>
+
+
+
+<p>diff 不能同时和其他语言的高亮同时显示，且需要调整代码主题为微信代码主题以外的代码主题才能看到 diff 效果，使用效果如下:</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">```diff</span></span><br><span class="line"><span class="code">+ 新增项</span></span><br><span class="line"><span class="code">- 删除项</span></span><br><span class="line"><span class="code">```  //此处忽略</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="addition">+ 新增项</span></span><br><span class="line"><span class="deletion">- 删除项</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-TOC"><a href="#4-4-TOC" class="headerlink" title="4.4 TOC"></a>4.4 TOC</h3><blockquote>
+<p>支持平台：微信公众号、知乎。</p>
+</blockquote>
+<p>TOC 全称为 Table of Content，列出全部标题。由于示例标题过多，需要使用将下方代码段去除即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[TOC]</span><br></pre></td></tr></table></figure>
+
+<p>由于微信只支持到二级列表，本工具仅支持二级标题和三级标题的显示。</p>
+<h2 id="5-其他语法"><a href="#5-其他语法" class="headerlink" title="5 其他语法"></a>5 其他语法</h2><h3 id="5-1-HTML"><a href="#5-1-HTML" class="headerlink" title="5.1 HTML"></a>5.1 HTML</h3><p>支持原生 HTML 语法，请写内联样式，如下：</p>
+<p><span style="display:block;text-align:right;color:orangered;">橙色居右</span><br><span style="display:block;text-align:center;color:orangered;">橙色居中</span></p>
+<h3 id="5-2-UML"><a href="#5-2-UML" class="headerlink" title="5.2 UML"></a>5.2 UML</h3><p>不支持，推荐使用开源工具<code>https://draw.io/</code>制作后再导入图片</p>
+<h3 id="5-3-更多文档"><a href="#5-3-更多文档" class="headerlink" title="5.3 更多文档"></a>5.3 更多文档</h3><p>更多文档请参考 <a href="https://product.mdnice.com/articles/" title="更多文档">mdnice 产品主页</a></p>
+]]></content>
+      <categories>
+        <category>mdnice</category>
+      </categories>
+      <tags>
+        <tag>微信</tag>
+        <tag>mdnice</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统精髓与设计原理：线程</title>
+    <url>/2021/03/15/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%B2%BE%E9%AB%93%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%EF%BC%9A%E7%BA%BF%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><blockquote>
+<p>《操作系统精髓与设计原理》、《现代操作系统》读书笔记，大部分摘录自书本中</p>
+</blockquote>
+<h2 id="1-进程和线程"><a href="#1-进程和线程" class="headerlink" title="1 进程和线程"></a>1 进程和线程</h2><p>之前<a href="https://mp.weixin.qq.com/s/KOfByF0f_zlCFbzKrv8R8g">进程的描述与控制</a>一文中对进程的讨论主要体现了两个概念：</p>
+<ul>
+<li><strong>资源占用</strong>：一个进程包含了容纳进程镜像的虚地址空间（进程镜像是由进程的代码、数据、栈，以及进程控制块中所定义的各个属性所组成）。在执行过程中，进程可以申请得到对系统资源，如主存、I/O 设备和通道，以及文件等的控制权。操作系统的任务是对这些系统资源进行保护，防止进程对资源的非法访问。</li>
+<li><strong>调度/执行</strong>：进程的执行将按照一定轨迹（Trace）进行，它的轨迹可能包含一个或多个程序的代码。如果系统中有多个进程并发执行，它们的执行轨迹将是交替向前发展的。这样，就有了进程的状态，且每个进程都要被赋予调度优先级和参与调度的实体。</li>
+</ul>
+<p>这两个概念在进程概念中得到了统一，但是在现代操作系统设计上，这两个概念是相互独立的。为了区分这两个概念，把进程的调度实体称为<strong>线程（Thread）</strong> 或者轻量级进程（Lightweight Process），而在考虑资源的权属上，可以把拥有资源的个体称为进程或者任务。</p>
+<h3 id="1-1-多线程"><a href="#1-1-多线程" class="headerlink" title="1.1 多线程"></a>1.1 多线程</h3><p>多线程指的是操作系统在一个进程内支持多个并发执行路径的能力。传统的方案即单线程方案为系统中的每个进程支持一条执行路径。相反的，多线程方案支持在单个进程中的多条并发执行路径。</p>
+<p>在多线程的环境下，进程是参与分配资源，以及权限保护的基本单位，它包含：</p>
+<ul>
+<li>容纳进程镜像的虚地址空间；</li>
+<li>对处理器的受保护访问，其他进程的信息（用于进程间通信），一组文件和 I/O 资源（设备和通道）。</li>
+</ul>
+<p>进程可包含一个或多个线程，每个线程包含：</p>
+<ul>
+<li>线程的状态（运行态、就绪态等）；</li>
+<li>线程上下文（未执行时），以及线程在进程代码中的执行位置；</li>
+<li>私有的执行栈；</li>
+<li>静态存储空间和局部变量；</li>
+<li>对系统资源的访问权限。</li>
+</ul>
+<center><img src="https://gitee.com/kaijietti/image-host/raw/master/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B8.png" width=80%/></center>
+
+<p>上图从进程管理的角度描述了进程和线程的区别。在单线程模型下（无线程概念），进程包含了进程控制块、用户态地址空间，以及用于函数调用的用户态和内核态栈。在多线程环境下，进程仍然具有它的进程控制块，以及用户态地址空间，但它的每个线程都拥有自己的私有执行栈，而且每个线程都有自己的控制块以存放上下文、优先级，以及线程状态信息。</p>
+<p>这样，进程的线程共享它们的父进程的状态，以及它所拥有的系统资源，且它们共存于同一地址空间，访问同一组数据。如果当其中的一个线程更改了内存中的数据，该进程的其他线线程就能看到这一更改，同理，如果某进程的一个线程在执行过程中采用了只读权限打开了某文件，该进程的其他线程将能够看到这个被打开的文件，且都有从该文件中读取的权限。</p>
+<p>线程概念的产生，实际上是对计算机系统的性能进行优化的结果：</p>
+<ul>
+<li>相比于创建一个新进程而言，在现有的进程基础上创建一个线程将要快得多；</li>
+<li>相比于结束一个进程而言，结束一个线程要快得多；</li>
+<li>在同一个进程的不同线程间切换，要比在不同的进程间切换要快得多；</li>
+<li>线程间通信要比进程间通信快得多。在大多数操作系统中，进程间通信往往需要内核的参与，然而对于属于同一个进程的线程而言，因为它们共享进程的内存及打开的文件，它们之间的通信就不需要借助内核来进行。</li>
+</ul>
+<blockquote>
+<p>即使在单处理器上，线程的结构一样可以被用来在一个程序中构造和区分逻辑上独立的功能，实现如前台/背景工作、异步处理、提高执行速度、模块化程序设计等的功能。</p>
+</blockquote>
+<p>在支持线程的操作系统中，调度往往基于线程来执行。因此，大多数有关执行的状态信息都保存在线程级的数据结构中。然而，有一些影响到一个进程所有线程的动作必须在进程的级别处理。例如，进程挂起操作需要将进程的地址空间整体换出到磁盘上，从而为其他进程的执行腾出主存空间。同时，由于进程的所有线程都共享其父进程的地址空间，所有进程的挂起操作将导致它所有的线程被同时挂起。同理，进程的结束将导致它所有的线程一起结束。</p>
+<h3 id="1-2-线程功能"><a href="#1-2-线程功能" class="headerlink" title="1.2 线程功能"></a>1.2 线程功能</h3><blockquote>
+<p>书本此处简要地对线程状态和线程同步进行介绍，原因在于，在线程状态设计上，不同操作系统会有不同的设计；而在线程同步上，涉及的相关机制繁多，故单独成章讨论。</p>
+</blockquote>
+<p><strong>线程状态</strong></p>
+<p>类似于进程，线程的基本状态是运行态、就绪态，以及阻塞态。一般来说，挂起态对于线程来说是没有意义的，因为这一状态是进程级别的概念。如果进程被换出到磁盘，它所有的线程必然都被换出，因为它们都共享父进程的地址空间。</p>
+<p>导致线程状态发生变化的 4 个基本操作如下：</p>
+<ul>
+<li><strong>创建（Spawn）</strong>：一般来说，一个新进程被创建的同时，它对应的一个线程也会被创建。其后，进程可以通过给出入口地址和参数，创建另一个线程（可以联想 Pthread 库的 API）。新创建的线程将拥有自己的寄存器上下文，以及私有栈空间，且进入就绪队列。</li>
+<li><strong>阻塞（Block）</strong>：当线程等待某事件的发生才能继续执行时，它将进入阻塞态（保存它的用户级寄存、记录执行地址和栈指针等到线程上下文中）。处理器在其后转而执行下一个处于就绪态的线程。</li>
+<li><strong>唤醒（Unblock）</strong>：如果线程所等待的事件发生，该线程将进入就绪队列。</li>
+<li><strong>结束（Finish）</strong>：当线程执行完毕后，它所对应的寄存器上下文及私有栈资源将被系统回收。</li>
+</ul>
+<p><strong>线程同步</strong></p>
+<p>一个进程的所有线程共享该进程的地址空间，以及它所拥有的系统资源。这样，一个线程对系统资源的任何改变都将影响到属于该进程的所有其他线程所运行的环境。为了保证程序的正确执行，需要对线程的活动加以协调和同步，使得它们不会互相干扰或者破坏重要的全局数据结构。</p>
+<blockquote>
+<p>实际上，用于线程同步的方法和机制与用于进程同步的方法和机制是一样的，将在<strong>并发：互斥与同步</strong>及<strong>并发：死锁与饥饿</strong>章节进一步讨论。</p>
+</blockquote>
+<h2 id="2-线程的类型"><a href="#2-线程的类型" class="headerlink" title="2 线程的类型"></a>2 线程的类型</h2><p>线程的实现可粗略分为两种：<strong>用户级线程（User-Level Threads，ULTs）</strong>和<strong>内核级线程（Kernel-Level Threads，KLTs）</strong>。</p>
+<center><img src="https://gitee.com/kaijietti/image-host/raw/master/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B9.png" width=80% alt="线程类型"/></center>
+
+<h3 id="2-1-用户级线程"><a href="#2-1-用户级线程" class="headerlink" title="2.1 用户级线程"></a>2.1 用户级线程</h3><p>在纯用户级线程的设计中，所有线程管理的工作都用应用程序（进程）自己完成。内核甚至不知道线程的存在。在一个典型的用户级线程的设计，线程库提供了用于创建线程、销毁、调度（包括线程寄存器上下文的保存），甚至线程间消息和数据通信的接口。应用可以使用线程库，设计自己的多个线程。在缺省情况下，应用程序开始执行时只有一个线程，而操作系统将该线程作为单个进程加以调度。在该应用进程运行的过程中（运行态），它可以调用线程库中的例程来创建新的线程在其地址空间中运行。在进程调用线程库的时候，线程库为被创建的线程建立起用于管理的数据结构（如线程控制块），并在其后根据自己的调度算法，将控制交给进程中处于就绪态的线程继续执行。在这些动作之前，线程库需要保存进程中处于运行态的线程的上下文信息，而在将控制权交给新的就绪态线程时，恢复该进程的上下文。这里所说的线程上下文主要包括用户态寄存器、程序计数器，以及栈指针。</p>
+<p>线程库的行为都发生在进程内且都在用户态执行，操作系统无法感知。所以对于操作系统来说，它还是将进程作为一整个实体加以调度，且为其执行赋予唯一的状态（如就绪态、运行态，而这些并不能区分内部线程状态）。所以说，当进程内多个线程中的某个线程调用了一个系统调用（如 I/O 操作），控制首先转移到操作系统内核，而内核因为 I/O 操作需要等待结果的返回，将该进程设置为阻塞态，并切换到另一个就绪态进程开始执行。那么，即便在该进程的视角看（即线程库的角度）其他线程是运行态，但实质上并不在处理器上执行。</p>
+<p><strong>与内核级线程方案相比较，采用用户级线程的方案具有以下优点</strong></p>
+<ul>
+<li>由于用于管理线程的数据结构都保存在进程的用户态地址空间，线程切换无需内核态的权限，所以线程切换不需要陷入内核态以完成所有的管理工作，从而避免了两次模式切换的开销（从用户态到内核态，再从内核态回到用户态）。</li>
+<li>线程调度可由应用定制。应用程序可以按照自己的需要定制线程调度算法，而无需破坏或受制于操作系统的调度算法。</li>
+<li>用户级线程可运行在任何操作系统上。这样，就无需为了支持多线程而修改操作系统的代码，且用户级线程库的设计可在多个用户态程序中得到应用。</li>
+</ul>
+<p><strong>相比较下的缺点</strong></p>
+<ul>
+<li>在典型的操作系统设计中，许多系统调用都会导致调用它们的进程阻塞。所以，如果用户级线程调用了这些系统调用，它将不仅导致线程自己的阻塞，也将导致它所属的进程的所有线程阻塞。除了会导致阻塞的系统调用外，页错误的处理也会发生类似的情况。</li>
+<li>在纯用户级线程的设计方案中，多线程的应用无法利用系统中的多处理器资源，这是因为操作系统一次只会将一个进程调度到一个处理器上执行。所以，进程一次只有一个线程能够执行。</li>
+<li>当某线程处于运行态时，除非它自愿让出处理器，否则它的所属进程的其他线程将没有机会得到运行机会。在进程内没有时钟中断，所以不可能实现轮询调度，除非线程自己进入运行时系统（应用线程库），否则调度器没有机会执行调度算法。<blockquote>
+<p>一个可能的解决方法是让运行时系统请求一定时间间隔的时钟信号从而将控制权移交给运行时系统。但过高频率的中断信号不切实际，而且即便采用了，开销也会很大。</p>
+</blockquote>
+</li>
+</ul>
+<p>避免线程阻塞的一个办法是护套（Jacketing）技术，该技术的目标是将导致阻塞的系统调用转换为非阻塞的系统调用。例如，将线程对操作系统 I/O 例程的直接调用转换为一个（非阻塞的）应用级 I/O 护套调用，后者检测 I/O 设备是否被占用。如果被占用，线程将进入阻塞态，并将处理器控制权（通过线程库）转移给同一进程的另一个线程。当该线程被再次调入执行时，它将再次调用护套调用检测 I/O 设备的情况。</p>
+<h3 id="2-2-内核级线程"><a href="#2-2-内核级线程" class="headerlink" title="2.2 内核级线程"></a>2.2 内核级线程</h3><p>在纯内核级线程的设计方案中，所有线程的管理功能都由操作系统内核来完成。用户态中没有关于线程管理的代码，只有程序设计接口（API）。操作系统内核管理和维护所有进程及进程中的线程的上下文信息，同时，内核的调度算法基于系统中线程的信息。这个方案克服了用户级线程设计方案的两个缺点：首先，内核能够将同属于一个进程的多个线程同时调度到多个处理器上执行；其次，如果某进程的一个线程被阻塞，内核仍然能够调度该进程的其他线程到处理器上执行。</p>
+<p>当进程需要创建或销毁进程时，它需要调用对应的系统调用从而由操作系统来代替创建和销毁，所以进程内不需要有相关的运行时系统（应用线程库）。由于内核态下执行创建和销毁的开销很大，一些系统也会利用线程复用技术，当线程被销毁时，只是将其标记为不可执行，而核心的数据结构仍然保持。当某进程需要创建线程时，将该线程重新激活，就能够节省创建和销毁线程的大部分开销。</p>
+<p><strong>相比于用户级线程方案，内核级线程方案的最大缺点在于</strong>即使是同一进程的不同线程间切换，都会导致用户态到内核态的模式切换。除此之外还有一些设计问题，比如，多线程的进程调用 <code>fork</code> 时会发生什么，是创建和原进程一样多的线程，还是只创建一个线程？这取决于程序上下文，每个选择都是对应某个场景。</p>
+<p>书本数据（此处不列出因为结论比较普遍）表明，相比于独立进程，采用内核级线程的设计方案可以带来很大的性能提升，如果采用用户级线程的设计方案，则可获得更大的性能提升。然而，是否能获得性能上的提升，最终取决于应用本身的特点。例如，如果某进程的线程中存在大量的内核模式的访问（如系统调用），则用户级线程设计方案不见得会比内核级线程设计方案带来更多的性能提升。</p>
+<h3 id="2-3-混合设计"><a href="#2-3-混合设计" class="headerlink" title="2.3 混合设计"></a>2.3 混合设计</h3><p>一些操作系统提供混合用户级线程和内核级线程的设计方案，在该方案中，线程的创建、调度和同步完全在用户态完成。同时，进程的多个线程可以映射到一组（数量相同或更少）内核态线程上。于是，程序员能够根据应用特点和系统中拥有处理器的数量，通过调整内核级线程的数量来优化系统整体的性能。</p>
+<p>在混合设计方案中，同一应用的多个线程能够同时运行在系统的多个处理器上，且某线程的阻塞不会导致整个进程的阻塞。如果调整得当，这一方案能够综合用户级线程和内核级线程方案的优点并最小化它们的缺点。</p>
+<h2 id="3-Linux-的进程-线程管理"><a href="#3-Linux-的进程-线程管理" class="headerlink" title="3 Linux 的进程/线程管理"></a>3 Linux 的进程/线程管理</h2><blockquote>
+<p>书本此处对于 Linux 下的进程状态转换图描述并不够详尽，所以下面注重于 Linux 下的线程实现。</p>
+</blockquote>
+<p>在 Linux 中，进程（也称为任务）由 task_struct 数据结构所描述，该结构包含了进程在各方面的定义，如状态信息、调度信息，地址空间等等。</p>
+<h3 id="3-1-Linux-线程"><a href="#3-1-Linux-线程" class="headerlink" title="3.1 Linux 线程"></a>3.1 Linux 线程</h3><p>传统 UNIX 系统只支持单线程进程，而最新的 UNIX 系统支持多内核线程的进程。早期版本的 Linux 内核遵循传统 UNIX 标准，所以不提供多线程支持。然而作为折衷，应用程序可以调用用户级的线程库实现并发执行路径，如著名的线程库 Pthread，它的实现原理是，将应用创建的线程（通过调用 Pthread 提供的 API）映射到单个内核态的进程。虽然最新的 UNIX 支持多内核线程，Linux 系统给出独特的设计：不区分线程和进程的区别，而是将用户级线程映射到内核级进程上。属于同一进程的线程被映射到一组拥有相同组 ID 的内核级进程上，这样就可以使这些内核级进程拥有相同的共享资源（如内存资源和打开的文件等），且当调度在组内的进程间执行时，无需切换进程上下文，从而减轻调度开销。</p>
+<p>Linux 系统定义了 <code>clone()</code> 这一系统调用来实现该目标：通过该系统调用所创建的新进程拥有与父进程相同的资源，如文件、信号表和虚拟内存空间。实际上，当两个进程拥有相同的虚拟内存，它们就等同于同一个进程的两个线程了，而无需专门为了实现线程而定义额外的数据结构。Linux 内核从一个进程切换到另一个时，会比较两者的页目录是否相同，如果相同，则说明这两个进程共享了地址空间，这时，进程切换就无需装载新的进程上下文，切换动作就等同于在同一个进程内发生的跳转指令。然而需要注意的是，虽然通过 clone() 系统调用创建的一组进程共享地址空间，但它们却不能共享用户态栈，因为每个进程都会有自己独立的执行路径（使用不同的参数调用不同的函数会用到栈空间）。这样，clone() 系统调用必须为它所创建的每个进程分配独立的用户态栈。</p>
+<h3 id="3-2-Linux-命名空间"><a href="#3-2-Linux-命名空间" class="headerlink" title="3.2 Linux 命名空间"></a>3.2 Linux 命名空间</h3><p>每个 Linux 进程都可以定义一组命名空间，这一组命名空间的作用是，让拥有特定命名空间的进程具有与其他拥有不同命名空间的进程不同的系统视图。也就是说，命名空间定义了进程所运行的系统的状态。命名空间的一个重要作用就是实现控制组（Cgroup）的概念，而控制组的概念是实现轻量级虚拟化的重要组成部分，它可以为一个或一组进程构造只有它（们）在系统中独立运行的假象。</p>
+<p>Linux 为进程定义了 6 种类型的命名空间：MNT、PID、NET、IPC、UTS 和 USER。通过调用 clone() 并传入适当标志（CLONE_NEWNS、CLONE_NEWPID、CLONE_NEWNET、CLONE_NEWIPC、CLONE_NEWUTS，以及CLONE_NEWUSER），进程可以创建与其父进程不同的命名空间。另外，进程也可以在运行过程中通过调用 unshare() 系统调用动态创建新的命名空间。</p>
+<p><strong>挂载命名空间（Mount Namespace）</strong>：该命名空间定义了进程所看到的文件系统结构，拥有不同挂载命名空间的进程所看到的文件系统是不同的。进程对文件的操作被局限在自己的挂载命名空间内。</p>
+<p><strong>UTS（UNIX Timesharing）命名空间</strong>：该命名空间与 uname() 系统调用相关。uname() 系统调用返回当前内核的名字信息，其中包含了节点名以及域名。而域名又是 UNIX 世界中广泛采用的网络信息服务（Network Information Service，NIS）系统的标识，这就允许拥有相同 UTS 命名空间，但不在同一台物理机器上的进程共享相同的配置参数。同时，也可以让在同一台物理机器上，但拥有不同 UTS 命名空间的进程使用不同的配置参数。</p>
+<p><strong>进程间通信（IPC）命名空间</strong>：该命名空间可以隔离用于进程间通信的资源，例如，信号量等。同样，程序员可以为拥有相同 IPC 命名空间的进程指定它们之间的同步机制。</p>
+<p><strong>进程标识（PID）命名空间</strong>：该命名空间用于隔离进程标识命名空间。不同 PID 命名空间的进程可以拥有相同的进程标识。这一特性使得在用户态进行的检查点和恢复机制（Checkpoint/Restore In Userspace，CRIU）成为可能。该机制允许在某检查点，对一个（或一组）正在运行的进程进行快照，并将快照保存在一个或多个文件中。这样，用户用这些文件在其后恢复进程时，从最近的检查点处开始，而无需担心它（或它们中的某一个进程）与系统的其他进程拥有相同的进程标识，从而导致冲突。</p>
+<p><strong>网络（NET）命名空间</strong>：该命名空间将系统中与网络有关的资源进行隔离，每个网络空间都有自己的网络设备、IP 地址、IP 路由表、端口号等。这些网络命名空间对网络访问进行了虚拟化，从而允许每个控制组拥有它所需要的网络访问方式。然而，对于单个的物理设备和网络设备，它在任一时刻只属于一个网络命名空间。同理，一个网络套接字只属于一个网络命名空间。</p>
+<p><strong>用户（USER）命名空间</strong>：一个用户命名空间可以看作是一个容器，它包含自己的用户标识集合，该集合甚至可以完全独立于父进程，以及所运行的系统。这样，当一个进程调用 clone() 创建子进程时，可以为该子进程分配新的用户命名空间、新的进程标识空间，以及其他命名空间。使得对于父进程所分配给它的那部分资源，子进程能够拥有与其父进程同等的权限。</p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h2><p>很多操作系统对进程和线程的概念进行了区分，一般来说，进程主要涉及资源管理权限问题，而线程主要与程序的执行相关。在一个支持多线程的系统中，一个进程可以定义多个并发线程以提高执行速度或系统资源利用率。实现的方法有用户级线程和内核级线程两种。用户级线程的创建和管理是通过在用户态调用线程库的方法，操作系统一般无法感知用户级线程的存在。相比于内核级线程，用户级线程往往更加高效，这是因为它的切换无需处理器的模式切换。然而，它的缺点在于：在单个进程中，一次只能执行一个用户级线程，且如果一个用户级线程阻塞，整个进程都将阻塞。相反，内核级线程的状态信息由操作系统内核来管理，同一个进程的多个内核级线程能够在多个处理器上并行地执行，且单个线程的阻塞不会导致整个进程的阻塞。内核级线程的缺陷，在于它的切换会导致处理器的模式切换开销。</p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>操作系统精髓与设计原理：进程的描述与控制</title>
+    <url>/2021/03/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%B2%BE%E9%AB%93%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%EF%BC%9A%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%8F%8F%E8%BF%B0%E4%B8%8E%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="进程的描述与控制"><a href="#进程的描述与控制" class="headerlink" title="进程的描述与控制"></a>进程的描述与控制</h1><blockquote>
+<p>《操作系统精髓与设计原理》读书笔记</p>
+</blockquote>
+<h2 id="1-什么是进程"><a href="#1-什么是进程" class="headerlink" title="1 什么是进程"></a>1 什么是进程</h2><h3 id="1-1-背景"><a href="#1-1-背景" class="headerlink" title="1.1 背景"></a>1.1 背景</h3><p>当前所有的多任务操作系统，都建立在进程这一概念之上。它是操作系统提供的一个非常重要的<strong>抽象</strong>。它的由来与应用程序脱不开关系。</p>
+<p>现代操作系统的设计，应能满足系统中多个应用程序执行的需要，达到以下设计目标：</p>
+<ul>
+<li>资源能够被多个应用程序使用；</li>
+<li>处理器需要在多个应用程序的执行过程中进行切换，造成应用程序同时进行的假象。</li>
+<li>尽可能地提高处理器和 I/O 设备的利用率。</li>
+</ul>
+<p>为了达到这些设计目标，现代操作系统都将应用程序的执行过程抽象为一个或多个进程。进而，一个成熟的操作系统所需要满足的所有设计目标都可以表达为进程的具体需求：</p>
+<ul>
+<li>操作系统必具有调度多个进程并发执行的能力，从而在最大化处理器利用率的同时，为用户提供合理的响应时间；</li>
+<li>操作系统为进程分配计算机系统的资源时，必须符合某既定的策略，同时避免死锁的发生；</li>
+<li>操作系统应尽可能地提供进程间通信和让用户创建进程的接口，从而帮助用户设计其应用；</li>
+</ul>
+<h3 id="1-2-进程和进程控制块"><a href="#1-2-进程和进程控制块" class="headerlink" title="1.2 进程和进程控制块"></a>1.2 进程和进程控制块</h3><p>进程有几个定义，包括：</p>
+<ul>
+<li>一个正在执行的程序；</li>
+<li>一个执行在计算机上的应用程序实例；</li>
+<li>一个能够被调度到处理器上执行的实体；</li>
+<li>一个活动单元，包括一串指令的执行、当前状态，以及一组正在使用的资源。</li>
+</ul>
+<blockquote>
+<p>上述定义可能由于历史原因或系统原因而不适用，比如往后支持的多线程调度等。</p>
+</blockquote>
+<p>可以把进程认为是一个包含多个元素的独立个体，其中有两个基本元素：</p>
+<ul>
+<li>程序代码（可在同一应用创建的多个进程中共享）；</li>
+<li>程序代码相关的一组数据；</li>
+</ul>
+<p>在进程执行过程的任意时间点上，所对应的进程拥有唯一表示其存在的元素，包括：</p>
+<ul>
+<li><strong>标识符</strong></li>
+<li><strong>进程状态</strong></li>
+<li><strong>优先级</strong>：相对于其他进程的优先级，用来确定进程被调度到处理器上执行的先后次序；</li>
+<li><strong>程序计数器</strong></li>
+<li><strong>内存指针</strong>：通过这些指针，，能找到该进程的代码、数据，以及和其他进程共享的内存部分；</li>
+<li><strong>上下文</strong>：即进程执行到该时间点时处理器中寄存器的值；</li>
+<li><strong>I/O 状态</strong>：包括 I/O 请求】被分配到该进程的 I/O 设备（如硬盘）、正在使用的文件等；</li>
+<li><strong>记账信息</strong>：包括该进程累计占用了多少处理器时间，它的使用时间限制等。</li>
+</ul>
+<p>这些信息一般会存放在一个被称为<strong>进程控制块</strong>的数据结构中，往往由操作系统创建。它的重要特点之一在于，包含了足够的信息从而能够在操作系统产生中断时，打断它的执行过程，并在中断处理完成后通过进程控制块的信息恢复该进程的执行。</p>
+<blockquote>
+<p>后面会对上述的进程信息进行进一步的分类，专门讲进程控制块。</p>
+</blockquote>
+<p>可以认为进程由程序代码、程序代码相关的数据，以及其对应的进程控制块共同组成。</p>
+<h2 id="2-进程状态"><a href="#2-进程状态" class="headerlink" title="2 进程状态"></a>2 进程状态</h2><p>操作系统的首要任务是控制进程的执行过程，这意味着它必须确定多个进程如何交替执行，以及如何为进程分配资源。为了达到这一目标，必须对进程的行为加以描述。</p>
+<blockquote>
+<p>本节中，行为实际上指的是状态。</p>
+</blockquote>
+<h3 id="2-1-双状态模型"><a href="#2-1-双状态模型" class="headerlink" title="2.1 双状态模型"></a>2.1 双状态模型</h3><p>双状态模型可以简化我们对操作系统的调度任务的观察，即帮助我们得出某种设计经验。</p>
+<p>在双状态模型中，任意时刻，进程只可能处于两种状态，执行态或不执行态。当操作系统创建一个新的进程时，创建该进程对应的进程控制块，并将该进程投入不执行态。之后，如果当前正在运行的进程用完了分配给它的时间片，它将被中断并进入不执行态，而调度程序将调入一个处于不执行态的程序投入运行，此过程不断重复，直到所有系统中的进程执行结束。</p>
+<center><img src="https://gitee.com/kaijietti/image-host/raw/master/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B1.png" width=80%/></center>
+
+<p>双状态模型启发的经验有：</p>
+<ul>
+<li>每个进程必须能够被操作系统跟踪，也就是说，一个进程必须包含有一些必要的信息（如其状态信息、进程控制块等）以使得操作系统能够感知它的存在，并控制它的执行。</li>
+<li>系统必须设计某种队列结构，来存放被暂停执行或暂时无法执行的进程的信息。</li>
+</ul>
+<blockquote>
+<p>另外，实际上进程状态与系统中用于存放它们的队列存在一定关系，它们的状态以及处在某个队列都是紧密联系的，所以设计状态模型的本质上也是在设计最基本的队列结构模型，而后才有调度策略。</p>
+</blockquote>
+<h3 id="2-2-五状态模型"><a href="#2-2-五状态模型" class="headerlink" title="2.2 五状态模型"></a>2.2 五状态模型</h3><p>双状态模型很简单，在实际上并不适用，因为系统中<strong>并不是所有的进程都可以随时被调度执行</strong>。</p>
+<blockquote>
+<p>如果有某一进程由于等待 I/O 而阻塞，那么哪怕它被调度也无法执行。如果采用单一队列，调度器不能直接将最早进入队列的进程调度到处理器上并开始它的执行，而是应该确定该进程没有处于阻塞状态，且在队列中等待的时间最久。</p>
+</blockquote>
+<p>对此，将<strong>不执行态</strong>进一步区分为两种状态：<strong>就绪态</strong>和<strong>阻塞态</strong>。加上<strong>新创建态</strong>和<strong>结束态</strong>就构成了五状态模型。</p>
+<p><strong>新创建态和结束态在进程管理的作用</strong>：</p>
+<ul>
+<li>新创建状态对应了进程刚刚被创建的状态。操作系统为其做了一些必要的工作，并为该进程分配一个标识符，创建所有与该进程相关的数据表（例如，进程控制块）。这意味着操作系统已经为该进程的执行做好了准备工作，但并未决定立即运行该进程（比如，可能因为进程数或内存容量的限制），所以需要等待操作系统接收（<code>Admit</code>）。<strong>在这种情况下，该进程运行所需要的全部管理机构都已具备，然而进程的代码尚未被载入内存</strong>。</li>
+<li>当进程执行到结束点，或因为出现错误而被操作系统或其他进程强制撤销，系统将该进程置为结束态。此时，该进程已经无法被再次投入运行，但<strong>用于控制该进程执行相关的数据结构仍然被操作系统暂时保留，以便在其后被其他进程访问</strong>。比如，操作系统的记账模块利用操作系统保留的信息计算该进程的总运行时间，以及在运行过程中对系统资源的使用情况，从而生成最终的账单。操作系统的工具模块利用这些信息来对系统的资源利用率进行统计，或对系统的性能进行计算。当进程的这些信息不再具有利用价值时，操作系统最终撤销之前保留的控制进程的数据结构。</li>
+</ul>
+<p>五状态模型示意图如下：</p>
+<center><img src="https://gitee.com/kaijietti/image-host/raw/master/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B5.png" width=80%/></center>
+
+<ul>
+<li>运行态：进程正在运行。</li>
+<li>就绪态：进程已准备好执行，如果给它处理器，它就可以立即投入运行。</li>
+<li>阻塞态/等待态：进程在等待某事件的发生，如 I/O 的完成。</li>
+<li>新创建态：进程刚刚被创建，但还未被操作系统加入可执行队列。例如，一个进程刚被操作系统创建，它的进程控制块已经建立，但它的可执行代码还未载入内存。</li>
+<li>结束态：进程结束（可能是自愿结束，也可能是发生某种错误被系统强制撤销），它所占用的系统资源被释放，但操作系统仍保留其控制结构（如进程控制块）。</li>
+</ul>
+<p>状态间可能存在的转换如下：</p>
+<ul>
+<li><strong>新创建态 -&gt; 就绪态</strong>：当操作系统准备好接收一个新进程的执行时，它将挑选一个新创建态进程，并将该进程的状态从新创建态切换到就绪态。因为性能或内存的限制，许多系统为系统中同时存在的进程设置了上限，以保证系统中不会有过多的进程而导致系统性能的下降。</li>
+<li><strong>就绪态 -&gt; 运行态</strong>：当处理器空闲时，操作系统从处于就绪态的进程中挑选一个进程，并将其投入运行，该进程的状态也相应地从就绪态变为运行态。选择进程的动作由调度器完成。</li>
+<li><strong>运行态 -&gt; 结束态</strong>：进程结束，或被操作系统撤销，该进程的状态也相应地从运行态转到结束态。</li>
+<li><strong>运行态 -&gt; 就绪态</strong>：存在多种原因导致这一变化，如时间片耗尽、抢占式调度、自愿放弃处理器等。具体来说：<ul>
+<li>多任务操作系统对进程的运行时间加上了某种限制，当某进程在执行过程中用完了分配给它的时间片时，其将会被重新切换为就绪态，从而适应多任务的执行需求；</li>
+<li>操作系统引进进程优先级的概念。例如，某操作系统有进程 A 和 进程 B，其中进程 B 的优先级高于进程 A 的优先级。在某时刻，进程 A 处于运行态，进程 B 因等待某事件的发生而处于阻塞态。其后，进程 B 等待的时间到达，导致进程 B 被唤醒并转移到就绪态。这时，由于进程 B 的优先级高于进程 A，调度器将中断进程 A 的执行，而立即调度进程 B 到处理器上执行。</li>
+<li>一个进程可能在运行过程中自愿放弃了自己的执行权。例如，系统的记账进程，作为背景进程，只是周期性地被调度执行，每次被调度后，这个记账进程都在完成自己的规定动作后，自愿放弃执行权。</li>
+</ul>
+</li>
+<li><strong>运行态 -&gt; 阻塞态</strong>：进程在执行过程中，因为请求一些暂时得不到而必须等待的服务时，从运行态转移到阻塞态。具体来说有：<ul>
+<li>进程调用一个操作系统的服务（如读写文件、访问共享内存等），而这些服务操作系统可能无法立即提供；</li>
+<li>进程在执行过程中发出了 I/O 请求，从而必须等待该 I/O 请求的完成才能继续执行；</li>
+<li>因为进程间通信的原因，一个进程在执行过程中等待另一个进程的消息才能继续往下执行。</li>
+</ul>
+</li>
+<li><strong>阻塞态 -&gt; 就绪态</strong>：当进程所等待的事件到达后，它的状态从阻塞态转移到就绪态。<blockquote>
+<p>在图中没有标出的转换如<strong>就绪态/阻塞态 -&gt; 结束态</strong>也是可能存在的：有些系统在父进程结束后，强制结束它所有子进程。这时就会导致子进程直接从就绪态或阻塞态转移到结束态。</p>
+</blockquote>
+</li>
+</ul>
+<p>对于<strong>阻塞态 -&gt; 就绪态</strong>，意味着当某事件到达时，操作系统必须遍历阻塞（等待）队列，准确地找到等待该事件到达的进程，可想而知，当有成千上万个进程处于阻塞态时，此法效率很低。</p>
+<center><img src="https://gitee.com/kaijietti/image-host/raw/master/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B3.png" width=80%/></center>
+
+<p>所以，为每一种可能到达的事件建立一个阻塞（等待）队列，将提高操作系统查找进程的速度。当某事件到达后，该事件对应的阻塞（等待）队列中所有的进程都将被转移到就绪态。</p>
+<center><img src="https://gitee.com/kaijietti/image-host/raw/master/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B4.png" width=80%/></center>
+
+<p>对于<strong>就绪态 -&gt; 运行态</strong>，如果操作系统采用了优先级调度策略，可以为每一个优先级组织一个就绪队列，这样操作系统能够较快速地找到高优先级的进程或等待时间最长的进程。</p>
+<h3 id="2-3-进程挂起"><a href="#2-3-进程挂起" class="headerlink" title="2.3 进程挂起"></a>2.3 进程挂起</h3><blockquote>
+<p>下面的内容需要关于虚拟存储方面的知识，并主要围绕<strong>进程挂起</strong>。</p>
+</blockquote>
+<p>考虑一个没有虚拟存储支持的系统，在该系统中，所有进程都必须被完全装入内存（即便是处于阻塞队列）。然而，在计算机系统中，I/O 操作往往比计算要慢得多，所以在一个单处理器系统中，处理器绝大多数时间都是闲置的。为了提高处理器的利用率，操作系统在内存中存放多个进程，如果一个进程在执行过程中发生阻塞，则立即调度另一个进程到处理器上执行。但是，因为处理器比 I/O 快太多，以至于可能所有被载入内存的进程都进入了阻塞态，而处理器仍然无事可做。</p>
+<p>解决方案之一是增加内存的容量，并放入更多的进程。但内存的价格昂贵，且程序对内存需求的增长，往往超过内存价格随着时间下降的速度，所以<strong>更大的内存往往导致更大的进程，而不是更多的进程</strong>。</p>
+<p>另一个解决方案就是<strong>虚拟存储技术</strong>。这一技术可以将进程的一部分或整个进程从内存交换到硬盘中。当系统中没有进程处于就绪态时，操作系统就可以用虚拟存储技术，将其中一个处于阻塞态的进程交换到硬盘，并将其状态设置为<strong>挂起状态（Suspend）</strong>，放到挂起状态对应的队列中。这样，操作系统就能腾出内存空间，从而能够调度执行另一个处于挂起状态的进程，或者另一个新创建的进程。</p>
+<blockquote>
+<p>交换操作仍然涉及大量的 I/O，采用这一技术可能使得系统性能更糟糕。但是，因为硬盘的 I/O 往往比计算机系统中的其他外部设备（例如，与磁带和打印机相比）快，所以采用虚拟存储技术往往会带来系统性能的提升。</p>
+</blockquote>
+<p>如果系统选择调度另一个之前处于挂起状态的进程，就有可能遇到该进程被载入内存后仍旧保持阻塞态，操作系统无法将其调度到处理器上执行（同时，系统花费了毫无用处的加载时间）。</p>
+<p>解决这个问题的方法是引入新的状态。思考两个互相独立的概念：</p>
+<ul>
+<li>进程是否在等待某个事件（阻塞或未阻塞）</li>
+<li>进程是否被从内存中换出（挂起或未挂起）</li>
+</ul>
+<p>将其进行组合出现四种状态：</p>
+<ul>
+<li><strong>就绪态</strong>（未阻塞，未挂起）：进程在主存中，且可被调度执行；</li>
+<li><strong>阻塞态</strong>（阻塞，未挂起）：进程在主存中，且在等待某事件的发生；</li>
+<li><strong>阻塞且挂起态</strong>（阻塞，挂起）：进程在辅存中，且在等待某事件的发生；</li>
+<li><strong>就绪且挂起态</strong>（未阻塞，挂起）：进程在辅存中，且如果被调入内存，即可执行。</li>
+</ul>
+<p>带挂起状态的进程状态图如下所示：</p>
+<center><img src="https://gitee.com/kaijietti/image-host/raw/master/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B6.png" width=80%/></center>
+
+<p>状态之间可能存在的转换如下：</p>
+<ul>
+<li><strong>阻塞态 -&gt; 阻塞且挂起态</strong>：当内存空间不足时，阻塞态进程可能会被挂起。例如<ul>
+<li>如果系统中没有就绪态进程可调度，则其中至少有一个阻塞态的进程被交换到外存中，为另一个未被阻塞的进程的执行腾出内存空间；</li>
+<li>如果操作系统发现正在执行的进程，或即将被调入执行的进程需要更多的内存空间时，它将换出一个阻塞态的进程到外存以得到所需要的内存空间。</li>
+</ul>
+</li>
+<li><strong>阻塞且挂起态 -&gt; 就绪且挂起态</strong>：当进程所等待的事件到达时，即便是在外存中，该进程切换至就绪态；</li>
+<li><strong>就绪且挂起态 -&gt; 就绪态</strong>：当系统中无就绪态进程时，操作系统将调入一个处于就绪且挂起态的进程到内存中，并将其置为就绪态。也可能是因为处于就绪且挂起态的进程拥有比所有当前的就绪态进程更高的优先级。</li>
+<li><strong>就绪态 -&gt; 就绪且挂起态</strong>：一般情况下，操作系统倾向于选择一个处于阻塞态的进程换出到外存中。但有时选择一个就绪态的进程换出到外存中可能是腾出大量连续内存空间的唯一办法。当然，此时操作系统会选择一个比即将进入系统的阻塞进程更低优先级的就绪态进程换出。</li>
+<li><strong>新创建态 -&gt; 就绪且挂起态/就绪态</strong>：当一个新创建的进程进入系统（被接收）时，它要么被加入到就绪队列，要么被加入到就绪且挂起状态中。无论何种情况，操作系统都必须为该进程创建一个进程控制块，并为其预分配一个地址空间。由于可能需要处理大量新创建的进程，系统将无法保证为每个这样的进程留出足够的内存空间，以将它们完全载入内存。因此，新创建的进程被接收时放到就绪且挂起态是非常必要的，因为此时无需将它们完全载入内存。由于这种对新创建进程的用时调入机制（Just-In-Time），操作系统能够在自身非常繁忙的时候有效处理大量新创建进程的任务。</li>
+<li><strong>阻塞且挂起态 -&gt; 阻塞态</strong>：调入内存却无法执行显得无意义，但考虑一下情形。当前执行的进程结束执行，并腾出大量的内存空间。这时，有一个在阻塞且挂起队列的进程具有比所有在就绪队列中的进程更高的优先级，且系统有理由相信该进程所等待的事件即将在不久后到达。在这一情况下，将其调入主存就显得合理了。</li>
+<li><strong>运行态 -&gt; 就绪且挂起态</strong>：一般来说，当前处于运行态的进程在用完时间片后将进入就绪态。但如果操作系统采用了抢占式调度方案，且有一个高优先级的进程从阻塞且挂起队列中被唤醒，从而抢占了当前运行的进程的执行权。且此时因为该高优先级进程的换入导致内存空间的紧张，此时操作系统不得不中断正在运行的进程的执行，并将其换出到外存中以腾出足够的内存空间。</li>
+</ul>
+<p>得益于虚拟存储技术，进程可以一部分被换出到外存，而其一部分仍然在内存中。如果操作系统发现在访问某进程地址空间时，对应内容不在主存中，则该地址对应的一小段空间会被载入内存（如按需调页）。虽然，虚拟存储技术相比较（整体）交换技术看起来减少了 I/O 开销，但如果系统中存在足够多的被部分载入的进程，虚拟存储技术的使用仍然可能造成系统性能的极大降低（如发生系统颠簸，具体在页面置换讨论）。所以，即使在采用虚拟存储技术的操作系统中，（整体）交换技术的使用有时仍然是提高系统性能的有力手段。</p>
+<p>最后总结下<strong>挂起态进程</strong>的特点：</p>
+<ul>
+<li>进程不能被立即调度执行；</li>
+<li>进程可能在等待某事件的发生，但阻塞态和挂起态存在且相互独立，即使进程等待的事件到达，也无法立即将其调入执行；</li>
+<li>进程必然是被另一个实体置为挂起态的：可能是它的父进程、操作员或操作系统；</li>
+<li>一个处于挂起状态的进程必须等到将它挂起的实体发出明确的命令之后，才能从挂起态转换为其他状态。</li>
+</ul>
+<p>关于挂起，书中还有更详细的讨论（如用途和原因），此处不展开。</p>
+<h2 id="3-进程描述符"><a href="#3-进程描述符" class="headerlink" title="3 进程描述符"></a>3 进程描述符</h2><p>前面描述了进程的状态（行为），是基于系统设计目标来设计不同状态以满足需求。为了进一步实现这些需求，就需要设计进程的数据结构（比如一些核心的字段等）。操作系统控制计算机系统中所有的事件，包括调度进程到处理器上执行、为进程分配资、响应用户请求等。<strong>可以说，操作系统是以进程为单位管理系统资源的实体</strong>。</p>
+<center><img src="https://gitee.com/kaijietti/image-host/raw/master/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%A8%A1%E5%9E%8B7.png" width=80%/></center>
+
+<p>那么为了控制进程和管理进程所使用的资源，操作系统需要了解哪些信息？</p>
+<h3 id="3-1-操作系统中控制资源的结构"><a href="#3-1-操作系统中控制资源的结构" class="headerlink" title="3.1 操作系统中控制资源的结构"></a>3.1 操作系统中控制资源的结构</h3><blockquote>
+<p>下面将简单介绍系统资源方面的信息</p>
+</blockquote>
+<p>假如操作系统需要管理进程和它所使用的资源，那么操作系统必须知道每个进程的当前状态。这里的状态指的是<strong>进程所拥有的资源</strong>。基本上所有操作系统都会将它所管理的信息分为以下四种类型：</p>
+<ul>
+<li>内存</li>
+<li>I/O 设备</li>
+<li>文件</li>
+<li>进程</li>
+</ul>
+<p>操作系统会选择将资源使用表格进行管理，在具体的操作系统实现上这类表格的组织略有不同，其基本形式和用途如下：</p>
+<ul>
+<li><strong>内存表格</strong>：用于跟踪记录物理内存和二级内存（即虚拟内存）的使用状况。一部分系统内存被保留给操作系统使用，而余下的内存则在用户进程之间分配和使用（有的系统还会引入交换机制管理用户进程到硬盘的交换）。内存表格至少包含以下信息：<ul>
+<li>物理内存的分配信息；</li>
+<li>虚拟内存的分配信息；</li>
+<li>每一块物理或虚拟内存的访问权限信息；</li>
+<li>用于管理虚拟内存的信息；</li>
+</ul>
+</li>
+<li><strong>I/O 设备表格</strong>：用于管理 I/O 设备和 <a href="https://en.wikipedia.org/wiki/Channel_I/O" title="I/O 通道">I/O 通道</a>。在任意时刻，一个 I/O 设备只能分配给一个特定的进程。加入一个 I/O 操作在进行中，操作系统就需要知道其状态以及其正在使用的主存区域（如用于 DMA 交换）。</li>
+<li>操作系统可能会维持一个<strong>文件使用表格</strong>。这些表格用于描述文件的基本信息（如在磁盘上的存储位置），它们当前的状态，以及一些其他的属性信息。在有些操作系统中，这些信息由文件系统所管理，但也存在一些操作系统本身记录和管理这些信息。</li>
+<li><strong>进程表格</strong>：用于对系统中存在的进程进行管理。</li>
+</ul>
+<p>上述的表格并不是互相独立的，它们之间通过指针进行连接。内存、I/O 设备，以及文件实际上是以进程为单位进行管理，所以进程表格将通过指针与其他表格进行直接或间接地链接。</p>
+<blockquote>
+<p>例如，一个文件表格中记录的文件可能用指针指向它所在的 I/O 设备，同时它可能被存储在物理内存或虚拟存储中，这样文件表格要和内存表格建立联系。</p>
+</blockquote>
+<p>最后，这些表格都不可能凭空存在，它必须放到内存的特定区域，所以它们又都与内存管理机制相关联。其次，操作系统的初始化阶段也必须对上述的运行环境进行检测和配置（如物理内存大小、I/O 设备号等等）。</p>
+<h3 id="3-2-进程控制块"><a href="#3-2-进程控制块" class="headerlink" title="3.2 进程控制块"></a>3.2 进程控制块</h3><blockquote>
+<p>进程的信息，如位置、属性等</p>
+</blockquote>
+<p>假如操作系统需要控制和管理一个进程，那么操作系统需要知道该进程的位置以及一些基本属性。</p>
+<p><strong>进程位置</strong></p>
+<p>讨论进程位置前，首先需要知道<strong>进程在操作系统中是如何表达的</strong>。一般情况下，进程包含：</p>
+<ul>
+<li>一段或多段即将执行的程序；</li>
+<li>与程序相关联的数据，如局部变量或全局变量，以及预先定义的常量；</li>
+<li>程序执行时利用到的栈，用于存放该程序执行过程中调用函数时的参数；</li>
+<li>自身状态和属性信息，便于操作系统对其进行管理和控制。</li>
+</ul>
+<p>通常称操作系统中用于管理和控制进程的数据结构为<strong>进程控制块（Process Control Block）</strong>，称进程所对应的程序、数据、栈以及属性信息所构成的全集为<strong>进程镜像</strong>。</p>
+<p>进程镜像的典型构成：</p>
+<ul>
+<li>用户数据：用户空间的可变部分，可能包含程序数据段、用户栈空间，以及代码段中的修改部分</li>
+<li>用户代码：可执行程序，一般是只读的</li>
+<li>栈：进程执行过程中需要一个或多个栈，用来存储函数调用的参数以及返回地址等</li>
+<li>进程控制块：操作系统用于控制进程所使用的数据</li>
+</ul>
+<p>概括地说，进程镜像包含一个进程控制块，一个用户态栈，进程的私有地址空间（代码、数据），以及进程与其他进程共享的地址空间。</p>
+<p>可见，<strong>进程镜像就是操作系统中进程的表达</strong>。进程的位置就是进程镜像的位置，这取决于内存管理系统。</p>
+<p>在最简单的情况下，进程镜像被连续地存放在辅存（也就是硬盘）中。当操作系统需要管理该进程时，该进程至少有一部分被加载到内存；当需要执行进程时，它的进程镜像将被完整地载入物理内存或虚拟内存中。所以，操作系统需要知道每一个进程在辅存中所存放的位置，以及它们被加载后，在主存中的存储位置。现代操作系统假设底层硬件具有页式地址管理功能，以便于在不连续的内存空间中，部分地将进程装入。在给定时刻，一个进程镜像的一部分可能被装入内存，而其余部分则可能在辅存中。所以，进程控制表必须包含足够信息，使得操作系统可以知道进程镜像中页面的位置。一般来说，进程控制表的每个表象至少包含一个指向进程镜像的指针。如果进程镜像包含多个块，该信息会在进程控制表中记录，或者通过交叉索引在内存表格中记录。</p>
+<p><strong>进程属性</strong></p>
+<p>复杂的多任务系统需要为每个进程记录大量信息，这些信息可以被存储在进程控制块中。下面将会讨论操作系统到底需要进程的哪些属性信息，而不着眼于它们的组织和存储，因为不同操作系统会有自己的一套实现。</p>
+<p>进程控制块中存放的进程信息主要由以下三个类型：</p>
+<ul>
+<li>进程标识符（Process Identification）；</li>
+<li>处理器状态信息（Processor State Information）；</li>
+<li>进程控制信息（Process Control Information）。</li>
+</ul>
+<p>展开来说：</p>
+<p><strong>进程标识符</strong></p>
+<ul>
+<li>标识符：进程控制块中存放的进程的数字标识包含：<ul>
+<li>该进程的标识符：操作系统在维护其他资源表格时就可以使用该标识符交叉索引进程表格。比如，在进程表格中可使用进程标识符信息来标记内存的哪些区域被分配给了哪些进程。另外，当进程需要和别的进程通信时，进程的标识符信息可以让操作系统得知参与通信的其他进程。</li>
+<li>父进程的标识符：当操作系统允许一个进程在运行过程中创建其他进程时，该进程标识符可以用来索引父进程和子进程。</li>
+<li>用户标识符：表征创建该进程的用户。</li>
+</ul>
+</li>
+</ul>
+<p><strong>处理器状态信息</strong>包含处理器中寄存器的值和状态。当进程执行过程中被中断时，所有的寄存器内的值将被保存到进程控制块中，以便该进程再次被调度执行时的恢复。处理器的状态信息所包含的寄存器集合在不同的处理器有着不同的定义（取决于处理器的设计），典型的有：</p>
+<ul>
+<li>用户可见寄存器：在用户态下程序可操纵的寄存器。</li>
+<li>控制和状态寄存器：处理器中有一些寄存器是用来控制处理器本身的行为的，包括<ul>
+<li>程序计数器：存储下一条即将执行的指令的地址；</li>
+<li>条件代码：用于存储最近一条算术逻辑指令执行的结果（例如，符号标志、进位标志、是否溢出等）；<blockquote>
+<p>一般来说，所有的处理器都包含一个或一组称为<strong>程序状态字（Program Status Word，PSW）</strong>的寄存器。这组寄存器包含了指令执行后的条件码外加一些状态信息。例如，Intel 的 x86 处理器中的 <code>EFLAGS</code> 就是一个典型的程序状态字。</p>
+</blockquote>
+</li>
+<li>状态信息：包括中断是否打开、执行模式（特权级）</li>
+</ul>
+</li>
+<li>栈指针：用于指向程序或操作系统所使用的栈的栈顶</li>
+</ul>
+<p><strong>进程控制信息</strong>被操作系统用于控制和协调系统内的各种活动进程。</p>
+<ul>
+<li>调度和状态信息：操作系统用于调度进程所需的信息，典型的包括如下<ul>
+<li>进程状态：进程的当前状态（例如，运行态，就绪态等）；</li>
+<li>优先级：一个或多个成员用于描述进程的优先级；</li>
+<li>跟调度相关的信息：这取决于系统所使用的调度算法。这类信息的例子有进程等待时间、进程运行时间等；</li>
+<li>事件：用于记录进程锁等待的事件</li>
+</ul>
+</li>
+<li>数据组织方式：进程可能采用队列、环等数据结构与其他进程相连接。如前面提到的阻塞态队列等。</li>
+<li>进程间通信：为了实现进程间通信，操作系统可能会在进程控制块中定义各种标志，信号，以及消息等辅助变量</li>
+<li>进程权限：操作系统会为其中运行的进程定义各种权限，例如，它所能访问的内存范围、能够执行的指令类型，以及是否被允许使用操作系统所提供的功能和服务等</li>
+<li>内存管理：进程控制块可能包含指向进程所包含的段描述符或页目录的指针，以描述进程在虚拟内存中的位置和状态</li>
+<li>资源的归属和利用：进程控制块可以定义字段来描述进程所控制的资源，如打开的文件等；也可以定义字段来记录它所对应进程的被调度历史，这些信息将有助于操作系统的调度程序制定它的调度方法</li>
+</ul>
+<p>以上，就是一个进程控制块中存放的进程信息。进程控制块是操作系统中最重要的数据结构，每一个进程控制块都包含操作系统为了控制它所对应的进程所需要的所有重要信息。进程控制块为操作系统内几乎所有重要的模块所读取、修改，其中包括调度模块、资源分配模块、中断处理模块，以及性能监控和分析模块等。可以说，<strong>进程控制块所构成的集合直接定义了操作系统在某个时间点上的状态</strong>。</p>
+<h2 id="4-进程控制"><a href="#4-进程控制" class="headerlink" title="4 进程控制"></a>4 进程控制</h2><p>上一节重点关注进程在操作系统中的表达，这一节的主题<strong>控制</strong>重点讲述的是进程受操作系统管理和控制时（如切换）进程的表达的变化。</p>
+<h3 id="4-1-处理器的执行的模式"><a href="#4-1-处理器的执行的模式" class="headerlink" title="4.1 处理器的执行的模式"></a>4.1 处理器的执行的模式</h3><p>几乎所有处理器都支持两种执行模式，一种为拥有更高特权级的模式（称作内核模式），该模式下执行如读写控制寄存器、特权 I/O 指令、用于内存管理的指令；部分内存区域必须在这一模式下才能访问。另一种低特权级模式称为用户模式，用户进程往往在这一模式下执行。</p>
+<p>之所以区分处理器执行模式，其目的在于保护操作系统以及操作系统中一些重要的表格，并将操作系统内核的操作与用户进程的操作隔离开来。出于安全的考虑，用户进程不允许拥有高权限，因为内核模式下能够执行所有指令，操纵所有寄存器和内存空间。</p>
+<p>在实现上，处理器通过程序状态字中的特定位来标识内核/用户态，该位在一些特定事件发生时会发生转换。例如，用户态的进程在执行过程中发出了一个调用内核服务的请求，或者一个中断触发了内核中的中断服务例程的执行，这些事件发生时，处理器将切换到内核模式，而当系统从这些事件返回到用户进程后，处理器将切换回用户模式。</p>
+<blockquote>
+<p>书本在此处讲处理器执行模式的原因我认为是，描述清楚当前进程交出处理器控制权时会发生的事情，由于安全目的设计的两种模式，必定会出现用户栈、内核栈的区分，进而就过渡到下面在讲述进程切换时对进程“上下文”的保存与恢复工作。</p>
+</blockquote>
+<h3 id="4-2-进程切换"><a href="#4-2-进程切换" class="headerlink" title="4.2 进程切换"></a>4.2 进程切换</h3><p>进程切换意味着一个处于运行态的进程被中断，操作系统将另一个进程设置为运行状态，并且将处理器的控制权交给新换入的进程。下面，将关注以下问题：</p>
+<ul>
+<li>哪些事件触发进程切换？</li>
+<li>处理器执行模式切换和进程切换的区别？</li>
+<li>为了实现进程切换，操作系统需要在它的核心数据结构上做哪些操作？</li>
+</ul>
+<p><strong>何时进行进程切换</strong></p>
+<p>只有当操作系统从当前运行的进程处得到了处理器的控制权后，进程切换才<strong>有可能</strong>发生。</p>
+<p>可能导致操作系统得到处理器控制权的可能事件：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>机制</strong></th>
+<th align="left"><strong>原因</strong></th>
+<th align="left"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">硬中断</td>
+<td align="left">外部事件的发生</td>
+<td align="left">响应异步的外部事件</td>
+</tr>
+<tr>
+<td align="left">异常（陷进）</td>
+<td align="left">当前指令无法继续执行</td>
+<td align="left">处理错误（如除零错误）或者异常事件（如缺页）</td>
+</tr>
+<tr>
+<td align="left">系统调用</td>
+<td align="left">用当前运行的进程显式发出</td>
+<td align="left">调用操作系统的服务例程</td>
+</tr>
+</tbody></table>
+<p>首先讲情况比较简单的情形：进程切换可能由当前进程通过显示<strong>系统调用</strong>所产生。例如，正在执行的进程通过某系统调用指令来打开文件，此时，该指令的执行将导致控制转移到操作系统的代码，操作系统将会把当前进程设置为阻塞态，而换入另一个就绪态的进程开始执行。</p>
+<p>很多系统将中断分为两种类型：硬中断和异常。<strong>硬中断</strong>指的是与当前正在运行的进程无关的，异步产生的，独立的外部事件；<strong>异常</strong>指的是当前正在运行的进程所（同步）产生的错误，或异常事件。对于硬中断，典型的例子有时间中断，I/O 中断等，这些一般都会有固定的处理例程来处理，并在处理完后选择继续当前的进程还是下一个就绪态进程；而对于异常，操作系统还将决定判断导致该异常发生的错误或异常的状态是否是致命的。如果是致命的，当前运行的进将转移到结束态，且换入另一个进程开始执行。如果不是，操作系统的行为将取决于错误的类型和操作系统的设计原则，它可能会尝试修复错误或简单地通知用户，在这之后，操作系统将可能会继续当前进程地执行，也可能换入另一个进程开始执行。</p>
+<p>以上就是一些可能会发生进程切换的场景，下面将会回答开头<em>进程受操作系统管理和控制时（如切换）进程的表达的变化</em>这一问题。</p>
+<p>在处理中断时，处理器控制权首先转移到中断处理例程，然后再从中断处理例程中调用操作系统用于处理中断的函数，并最终完成对中断的处理。展开来讲就是，在指令周期的中断处理阶段，处理器会检查系统中是否有在等待还未被处理的中断，如果没有中断未被处理，处理器会进入取指阶段，取出下一条指令。如果有中断未被处理，处理器会进入以下流程：</p>
+<ul>
+<li>设置程序计数器到该（未被处理）中断对应的中断处理例程的入口。</li>
+<li>从用户模式切换到内核模式，以开始中断处理例程（包括特权指令）的执行。</li>
+</ul>
+<p>同时，当前进程的上下文会被保存到它自己的进程控制块中。</p>
+<blockquote>
+<p>简单地讲，进程的上下文必须包含所有可能被中断处理例程所改变的信息，其中包括程序计数器、其他处理器寄存器，以及栈信息。</p>
+</blockquote>
+<p>那么在进程控制块中，除了进程上下文以外的部分在这个过程中会发生变化吗？这取决于该中断的发生是否导致了进程切换。如果中断处理后确实有进程的切换发生，则操作系统可能会做一些额外的工作（详细看后面的<strong>进程状态的改变</strong>一节），并修改当前进程的进程控制块中除了上下文以外的部分。然而，在大多数情况下，中断的发生和处理并不会直接导致进程切换。也就是说，当前进程会在中断处理历程执行完后继续执行。在这种情况下，所有需要被保存的信息就只有处理器的状态信息。通常情况下，对这些信息的保存和恢复都由硬件完成。</p>
+<p><strong>进程状态的改变</strong></p>
+<p>通过前面的讨论可知，处理器的模式切换并不会直接导致当前正在运行的进程被切换。在这种情况下，当前进程的上下文的保存和随后的恢复并不会带来太大的系统开销。然而，如果当前进程转移到其他状态，操作系统就必须开始一个完整的进程切换流程，包含如下步骤：</p>
+<ul>
+<li>保存当前进程的上下文，包括程序计数器和其他的寄存器；</li>
+<li>改变当前进程的进程控制块的内容，其中包括其状态的改变。另外一些相关的域可能也会改变，例如离开运行态的原因、进程记账信息等；</li>
+<li>将当前进程的控制块转移到其他队列中（例如，就绪态队列、事件 <em>i</em> 的阻塞队列、就绪且挂起态队列等）。</li>
+<li>选择一个合适的进程开始执行，选择的动作由调度器做出。</li>
+<li>更新被选择投入执行的进程的进程控制块，包括将其状态置为运行态。</li>
+<li>更新内存管理模块的数据结构。</li>
+<li>恢复被选中投入执行的进程的运行现场。</li>
+</ul>
+<p>所以，进程切换往往意味着进程状态的改变，相比较处理器的模式切换来说，需要更多的工作，也意味着更大的系统开销。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>现代操作系统最根本的概念是进程。操作系统对进程的基本控制包括创建、管理和结束进程。当进程处于活动状态时，操作系统必须为其分配处理器时间以及其它系统资源，以及响应它们的需求。</p>
+<p>为了对进程进行管理，操作系统必须为每个进程维护一个描述符，或者管理进程的镜像，每一个镜像都包含了进程所运行的地址空间，以及一个进程控制块。而进程控制块包含了操作系统用于控制进程所需要的所有信息，包括它的当前运行状态、所得到的资源、优先级，以及其他的相关数据。</p>
+<p>在生命期中，进程在诸多状态中不断转换。其中，最重要的状态有就绪态、运行态和阻塞态。就绪态的进程获得了除处理器外的所有资源，运行态的进程处于正在处理器上运行的状态，在多处理器系统中，可能有多个进程同时处于运行态，阻塞态的进程正在等待某事件的发生。</p>
+<p>处理外部异步产生的中断或处理器同步产生的异常，或者当前进程发出的系统调用，都能打断当前进程的执行。当这些发生时，处理器进行模式切换，将控制权交给操作系统的例程。而在完成这些中断处理例程或系统调用后，操作系统可能会继续当前进程的执行，也可能切换到另一个进程。</p>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>操作系统</tag>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络：TCP（未完成草稿）</title>
+    <url>/2021/04/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%9ATCP/</url>
+    <content><![CDATA[<h1 id="可靠的面向连接的传输：TCP"><a href="#可靠的面向连接的传输：TCP" class="headerlink" title="可靠的面向连接的传输：TCP"></a>可靠的面向连接的传输：TCP</h1><blockquote>
+<p>主要整理自《计算机网络（第7版）谢希仁编著》、《计算机网络：一种开源的设计实现方法》、《计算机网络：系统方法》，在下文分别称为谢书、林书和拉书。</p>
+</blockquote>
+<p>[toc]</p>
+<h2 id="1-连接管理"><a href="#1-连接管理" class="headerlink" title="1 连接管理"></a>1 连接管理</h2><h3 id="1-0-有限状态机"><a href="#1-0-有限状态机" class="headerlink" title="1.0 有限状态机"></a>1.0 有限状态机</h3><p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210408154117.png" alt="TCP 状态转换图"></p>
+<h3 id="1-1-连接建立"><a href="#1-1-连接建立" class="headerlink" title="1.1 连接建立"></a>1.1 连接建立</h3><p><strong>常见问题</strong></p>
+<ul>
+<li>三报文握手过程中，如果某次握手信息丢失会怎样？</li>
+<li>为什么要进行三报文握手，两报文可以吗？</li>
+<li>三报文握手存在的问题？<ul>
+<li>SYN FLOOD 是什么？</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-连接释放"><a href="#1-2-连接释放" class="headerlink" title="1.2 连接释放"></a>1.2 连接释放</h3><p><strong>常见问题</strong></p>
+<ul>
+<li>为什么要四报文挥手？</li>
+<li>CLOSE-WAIT 和 TIME-WAIT 的状态和意义</li>
+<li>TIME-WAIT 状态会导致什么问题？</li>
+<li>TIME-WAIT 状态为什么必须等待 2MSL 的时间？</li>
+</ul>
+<h3 id="1-3-分组消耗序列号的问题"><a href="#1-3-分组消耗序列号的问题" class="headerlink" title="1.3 分组消耗序列号的问题"></a>1.3 分组消耗序列号的问题</h3><blockquote>
+<p>这里总结一下各种报文段对序列号消耗的问题以及原因。比如 pure ACK 不消耗且不被 ACKed，RST 不需要被ACKed，等等。<br>基本上是否被 ACKed 与 是否消耗序列号等同。</p>
+</blockquote>
+<p>RST 并不需要被 ACK 但可以携带数据：<br>RFC 1122：<br>A TCP SHOULD allow a received RST segment to include data.<br>DISCUSSION<br>        It has been suggested that a RST segment could contain<br>        ASCII text that encoded and explained the cause of the<br>        RST.  No standard has yet been established for such<br>        data.</p>
+<h3 id="1-4-连接状态与套接字-API-的关系"><a href="#1-4-连接状态与套接字-API-的关系" class="headerlink" title="1.4 连接状态与套接字 API 的关系"></a>1.4 连接状态与套接字 API 的关系</h3><p><a href="https://blog.csdn.net/yunhua_lee/article/details/40513677?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-5.control&amp;dist_request_id=1328690.20886.16166497340647521&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-5.control">https://blog.csdn.net/yunhua_lee/article/details/40513677?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-5.control&amp;dist_request_id=1328690.20886.16166497340647521&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-5.control</a></p>
+<h2 id="2-数据传输的可靠性"><a href="#2-数据传输的可靠性" class="headerlink" title="2 数据传输的可靠性"></a>2 数据传输的可靠性</h2><blockquote>
+<p>注意，书上可靠性仅关注数据的可靠传输和有序到达。流量控制和拥塞控制归属于速率控制，是建立在可靠性基础上的机制。</p>
+</blockquote>
+<h3 id="2-1-分段的差错控制：校验和"><a href="#2-1-分段的差错控制：校验和" class="headerlink" title="2.1 分段的差错控制：校验和"></a>2.1 分段的差错控制：校验和</h3><p>TCP 校验和与 UDP 校验和计算方式是一样的，但前者是强制性的，后者是可选的。对比于以太网中使用 32 位的循环冗余校验和，传输层协议的校验和是相对较弱的检查。除此之外关于检验和的细节就是<em>伪头部</em>，其作用就是防止处理路由错误到达的分组。</p>
+<blockquote>
+<p>TCP 检验和相关的部分不是本文重点，可以参考以下链接：<br><a href="https://tools.ietf.org/html/rfc793#section-3.1">https://tools.ietf.org/html/rfc793#section-3.1</a><br><a href="https://en.wikibooks.org/wiki/Communication_Networks/TCP_and_UDP_Protocols/UDP#Checksum_Calculation">https://en.wikibooks.org/wiki/Communication_Networks/TCP_and_UDP_Protocols/UDP#Checksum_Calculation</a><br><a href="http://www.tcpipguide.com/free/t_TCPChecksumCalculationandtheTCPPseudoHeader-2.htm">http://www.tcpipguide.com/free/t_TCPChecksumCalculationandtheTCPPseudoHeader-2.htm</a></p>
+</blockquote>
+<h3 id="2-2-流的可靠性：序列号和确认应答"><a href="#2-2-流的可靠性：序列号和确认应答" class="headerlink" title="2.2 流的可靠性：序列号和确认应答"></a>2.2 流的可靠性：序列号和确认应答</h3><p>每个分段的校验和不足以保证可靠地和按序地发送全部分组化的数据。由于分组的数据偶尔也会在互联网上丢失，所以必须有一种机制来重传丢失的分组。而且，因为按顺序发送的分组由于互联网路由的无状态性质可能会不按顺序接收，所以必须提供另外一种机制重新排列无序的分组。这两种机制分别依赖于<strong>确认应答（ACK）和序列号</strong>。</p>
+<p>从理论上，给每个字节数据分配一个序列号。然后，一个分组的序列号表示它的第一个数据字节的序列号，存储在 TCP 头部的 32 位序列号字段。TCP 发送者进行编号并且跟踪已经发送的数据字节并等待它们的确认。一旦收到一个数据分组，TCP 接收者就回应一个 ACK 分组，该分组携带的确认号表示在指定确认号以前的数据字节已经成功接收（或者说是期望接收的下一个数据分组的序列号）。</p>
+<p>TCP 接收方一般都是采用累积 ACK 的方式，即不必对收到的分组逐个发送确认，而是在收到若干个分组后，对按序到达的最后一个分组发送确认。</p>
+<p>进一步的，还需要考虑 TCP 如何高效发送数据（下文的滑动窗口）、有效处理丢失或者异常事件（使用定时器等等）以及如何协调收发双方行为等等，这些都在后文讨论。</p>
+<h3 id="2-3-异常情况"><a href="#2-3-异常情况" class="headerlink" title="2.3 异常情况"></a>2.3 异常情况</h3><p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210327145451.png" alt="TCP 可靠性"></p>
+<p>对应的解释：</p>
+<ul>
+<li>如图 a 表示，数据丢失的情况下，在重传定时器超时后发送者就会察觉到这种丢失并重传丢失的分组。</li>
+<li>如图 b 表示，大的传播延迟可能会导致过早超时，导致不必要的重传。此时接收方将重传分组仅作为重复数据而丢弃。可靠性虽然得到保证但若经常出现这种情况将会严重浪费带宽。</li>
+<li>如图 c 表示，TCP 使用累计 ACK 的优点之一就是：前面的 ACK 的丢失不会造成任何不必要的数据重传，因为随后的 ACK 会重复丢失 ACK 中的确认信息。</li>
+<li>如图 d 表示，TCP 使用累积 ACK 会出现重复 ACK 的情况，给发送方感觉分组丢失了，但当数据最后按序排列时，累积 ACK 同样能返回期待的确认号。</li>
+</ul>
+<h2 id="3-流量控制"><a href="#3-流量控制" class="headerlink" title="3 流量控制"></a>3 流量控制</h2><blockquote>
+<p>本节内容是对前一节可靠传输的进一步讨论。</p>
+</blockquote>
+<p>使用确认和超时实现可靠传输的策略称为<em>自动请求重发（Automatic Repeat Request，ARQ）</em> ，有三种不同的 ARQ 算法：</p>
+<ul>
+<li>停止-等待（stop-and-wait）协议</li>
+<li>滑动窗口（TCP 采用的算法基础）</li>
+<li>并发逻辑信道</li>
+</ul>
+<blockquote>
+<p>拉书注：延迟带宽积的重要性在于，它表示可传输的数据总量。我们希望不等待第一个确认而能够发送这么多的数据，这里使用的原理通常称为保持管道满载（keeping the pipe full）。</p>
+</blockquote>
+<h3 id="3-1-滑动窗口"><a href="#3-1-滑动窗口" class="headerlink" title="3.1 滑动窗口"></a>3.1 滑动窗口</h3><p>拉书对于滑动窗口的探讨比较深入，值得精读。</p>
+<p><strong>滑动窗口算法</strong>的工作过程如下：</p>
+<p>首先，发送方对每一帧赋予一个序号（sequence number），记作 SeqNum（暂时忽略 SeqNum 是由有限大小的首部字段实现的事实）。</p>
+<p><em>发送方</em>维护三个变量：</p>
+<ul>
+<li>发送窗口大小（send window size，SWS），给出发送方能够发送但未确认的帧数的上界。</li>
+<li>最近收到的确认帧（last acknowledgement received，LAR）的序号。</li>
+<li>最近发送的帧（last frame sent，LFS）的序号。</li>
+</ul>
+<p>遵循如下不等式（<code>LFS - LAR &lt;= SWS</code>）：</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210327231738.png" alt="发送方的滑动窗口"></p>
+<p>当确认到达时，发送方向右移动 LAR，从而允许发送方发送另一帧。同时，发送方为所发的每一帧设置一个定时器，如果定时器在接收到 ACK 之前超时，则重传此帧。注意，发送方必须缓存多达 SWS 个帧，因为在它们得到确认之前必须准备重传。</p>
+<p><em>接收方</em>维护三个变量：</p>
+<ul>
+<li>接收窗口大小（receive windown size，RWS），给出接收方所能接收的无序帧数目的上界。</li>
+<li>最大可接收帧（largest acceptable frame，LAF）的序号。</li>
+<li>最后收到的帧（last received frame，LRF）的序号。</li>
+</ul>
+<p>遵循如下不等式（<code>LAF - LFR &lt;= RWS</code>）：</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210328150353.png" alt="接收方的滑动窗口"></p>
+<p>当一个具有序号 SeqNum 的帧到达时，接收方采取如下行动：</p>
+<ul>
+<li>如果 <code>SeqNum &lt;= LFR</code> 或 <code>SeqNum &gt; LAF</code>，那么帧不在接收方窗口内，于是丢弃。</li>
+<li>如果 <code>LFR &lt; SeqNum &lt;= LAF</code>，那么帧在接收窗口内，于是接收。</li>
+</ul>
+<p>现在接收方决定是否发送 ACK。令 SeqNumToACK 表示未被确认帧的最大序号（意味着序号小于等于 SeqNumToACK 的帧都已收到），即使已经收到更高序号的分组，接收方仍确认 SeqNumToACK 的接收（即累积确认）。然后，设 LFR = SeqNumToACK，并调整 LAF = LFR + RWS。</p>
+<p>在考虑分组丢失重传效率的问题上，解决方法有很多，如 NACK，重复ACK（立即发送确认即便错序）以及 SACK（选择性 ACK）。其中，NACK 增加了接收方的复杂性（因此不推荐这样做），重复 ACK 能够作为帧丢失的线索从而能够尽早检测分组的丢失，SACK 则用于解决后面 TCP Reno 的多分组丢失问题。这些解决方法的思路就是给发送方提供更多信息，从而使其较容易地保持管道满载。</p>
+<p>另外，接收方的 RWS 设置为任何想要的值：</p>
+<ul>
+<li>RWS = 1，表示接收方不缓存任何错序到达的帧；</li>
+<li>RWS = SWS，表示接收方能够缓存发送方传输的任何帧；</li>
+<li>RWS &gt; sws，此设置无意义，因为错误到达的帧树木不可能超过 SWS。</li>
+</ul>
+<p><strong>有限序号</strong></p>
+<p>实际上，帧的序号由大小有限的首部字段来说明，那么序号就会回绕。这就带来了一个问题：要能够区别同一序号体现的不同帧，这意味着可用序号的数目必须大于所允许的待确认帧的数目。</p>
+<p>拉书上有关于 MaxSeqNum（可用序列号总数） 与 RWS、SWS 的关系探讨，这里给出其习题：</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210329141326.png" alt="MaxSeqNum &lt; RWS + SWS 时可能出现的错误情况"></p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210329141853.png" alt="MexSeqNum = RWS + SWS 时恰好足够使用的临界情况"></p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210329142126.png" alt="RWS 与 SWS 不等时，MaxSeqNum 与其的一般关系式"></p>
+<blockquote>
+<p>第二张图中说明的按序到达的条件是比较理想化的，现实中在普通情况下不太可能遇到回绕问题，但高速链路上或者跨连接的分组仍然可能造成异常，这就需要进一步解决了。</p>
+</blockquote>
+<!-- 滑动窗口可以保证可靠传输和按序到达，但并没有解决回绕问题，可以说这是两个层次的问题：
+
+在没有失序或者跨 RTT 到达的分组的情况下（我也不知道如何描述这个情况，但就是完美情况下），序号空间是否足够，这要综合考虑序号字段和窗口字段。（MaxSequenceNum >= SWS + RWS）条件下，序列号越大就可以放宽前面的情况限制。但具体是怎么样放宽，也是不得而知。
+
+latest：我们在基于书本假设的条件下进行破坏，说明出现不可靠传输的条件在序列号空间很大时很难达到即可。
+
+而在真实场景中，会存在回绕问题，主要考虑的是一个序列号在前后两次 MSL 时间内出现，会导致错误。 -->
+
+<h3 id="3-2-TCP-滑动窗口算法"><a href="#3-2-TCP-滑动窗口算法" class="headerlink" title="3.2 TCP 滑动窗口算法"></a>3.2 TCP 滑动窗口算法</h3><p>TCP 滑动窗口算法三个功能：</p>
+<ul>
+<li>数据的可靠传递</li>
+<li>数据的有序传递</li>
+<li>发送方和接收方之间的流量控制</li>
+</ul>
+<p>前两个功能与前面的基本滑动窗口算法类似，但 TCP 并不使用固定尺寸的滑动窗口，而是由接收方向发送方通知（advertise）它的窗口尺寸。这是通过使用 TCP 首部的 AdvertisedWindow 字段完成的。接收方基于自己的缓冲区大小和数据处理速率来设定接收窗口值，并通过对发送方数据的确认的首部字段携带窗口值。这就是流量控制的基本原理了。如有其他细节后续会补充。</p>
+<p>拉书进一步描述了 TCP 首部的 SequenceNum 和 AdvertisedWindow 字段对正确新和性能的影响。TCP 的 SequenceNum 字段长 32 位，AdvertisedWindow 字段长 16 位，也就是说 TCP 已经满足滑动窗口算法的要求，即序号空间是窗口空间的两倍以上。现分别考虑两字段。</p>
+<p><strong>32 位序号空间的相关问题</strong>是，某个连接使用的序号可能会回绕，即具有序号 x 的一个字节在某个时刻被发送出，一段时间后，第二个具有序号 x 的字节也有可能被发出，在假设一个分组在因特网上的生存期不超过 MSL 的情况下，任务就是确保序号在该期限内不会回绕。这取决于数据在因特网上传输的速度：</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210329160755.png" alt="32 比特序号空间的回绕时间"></p>
+<p>对于当前因特网的主干网的高速链路来说，32 位的序号空间是不足够的，但通过时间戳的拓展选项可以对序号进行“拓展”，从而能够进行区分，也就解决了回绕的问题。</p>
+<p><strong>16 位 AdvertisedWindow 字段的相关问题</strong>是，它必须足够大以使得发送方能够保持管道满载。假设接收方有足够的缓冲空间可以处理 AdvertisedWindow 所允许的最大数据量的情况。此时，窗口应尽量开放的足够大，使得数量为 <code>延迟 * 带宽</code> 的全部数据能被传输。假设有 100ms 的 RTT，下图给出了几种网络技术的延迟带宽积。</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210329160944.png" alt="100ms RTT 所需的窗口大小"></p>
+<p>可以看出，AdvertisedWindow 的大小甚至不足以处理横穿美国大陆的 T3 连接，因为 16 比特的字段只允许 64KB 的通知窗口。但 TCP 提供选项支持对滑动窗口的拓展使其能够填充可能由高速网络形成的更大的 <code>延迟 * 带宽</code> 通道。</p>
+<h3 id="3-2-触发传输"><a href="#3-2-触发传输" class="headerlink" title="3.2 触发传输"></a>3.2 触发传输</h3><p>拉书中一个对何时进行分组发送的探讨</p>
+<h2 id="4-拥塞控制"><a href="#4-拥塞控制" class="headerlink" title="4 拥塞控制"></a>4 拥塞控制</h2><h3 id="4-1-拥塞控制的一般原理"><a href="#4-1-拥塞控制的一般原理" class="headerlink" title="4.1 拥塞控制的一般原理"></a>4.1 拥塞控制的一般原理</h3><blockquote>
+<p>整理自谢书，主要理解拥塞控制的概念及其与流量控制的联系与区别。</p>
+</blockquote>
+<p>在计算机网络中的链路容量（即带宽）、交换节点中的缓存和处理机等，都是网络的资源。在某段时间，若对网络中某一资源的需求超过了该资源所能提供的可用部分，网络的性能就要变坏。这种情况就叫做<strong>拥塞（congestion）</strong>。若网络中的许多资源同时呈现供应不足，网络的性能就要明显变坏，整个网络的吞吐量将随输入负荷的增大而下降。</p>
+<p>网络拥塞往往是由许多因素引起的，且通常无法靠增加某种资源量来解决。例如，当某个结点缓存的通量太少时，到达该结点的分组因无存储空间暂存而不得不被丢弃。设想增大该结点的缓存容量使得凡到达该结点的分组均可在结点的缓存队列中排队，但由于输出链路的容量和处理机的速度并未提高，该队列中的绝大多数分组的排队等待时间大大增加，最终只能“被超时”而后重新由上层软件将它们重传。又如，处理机处理的速率太慢引起网络的拥塞，简单将其效率提高可能会使情况缓解一些，但<strong>往往又会将瓶颈转移到其他地方</strong>。所以问题的本质往往是<strong>整个系统的各个部分不匹配</strong>。</p>
+<p>拥塞控制与流量控制关系密切但存在差别：</p>
+<ul>
+<li><strong>拥塞控制是防止注入过多的数据到网络中，使网络中的路由器或链路不致过载</strong>。拥塞控制的前提是<strong>网络能够承受现有的网络负荷</strong>。拥塞控制是一个<strong>全局性的过程</strong>，涉及到所有的主机、路由器以及降低网络传输性能有关的所有因素。</li>
+<li><strong>流量控制往往是指点到点通信量的控制</strong>，是个<strong>端到端</strong>的问题（接收端控制发送端）。流量控制所要做的就是抑制发送端发送数据的速率，以便使接收端来得及接收。</li>
+</ul>
+<blockquote>
+<p>两者存在混淆的原因是在实现上两者有相似的机制即向发送端发送控制报文以通知其网络/对端出现麻烦，需要放慢发送速率。</p>
+</blockquote>
+<p>在实际网络中，随着网络提供的负载的增大，网络吞吐量的增长速率逐渐减小（提供的负载表示单位时间内输入给网络的分组数，吞吐量表示单位时间内从网络输出的分组数）。也就是说，在网络吞吐量还未达到饱和时，就已经有部分分组被丢弃了，当网络吞吐量明显小于理想值（即输入与输出相抵）时，网络就进入轻度拥塞状态。当提供的负载增大到某一数值时，网络吞吐量下降到零，出现死锁。</p>
+<blockquote>
+<p>谢书提到，分组的丢失是网络发生拥塞的征兆而不是原因，所以拥塞引起的重传实质上并不会缓解拥塞（在不加以拥塞控制的情况下）。甚至在许多情况下，正是拥塞控制机制本身成为引起网络性能恶化或发生死锁的原因。书本还更进一步从控制理论的角度看待拥塞控制问题，这里就不展开了。</p>
+</blockquote>
+<h3 id="4-2-TCP-拥塞控制"><a href="#4-2-TCP-拥塞控制" class="headerlink" title="4.2 TCP 拥塞控制"></a>4.2 TCP 拥塞控制</h3><p>林书中对 TCP 拥塞控制思想进行了描述：</p>
+<p>TCP 发送者是通过检测数据分段丢失事件来推断网络是否拥塞。一个丢失事件后，发送者会礼貌地减慢其传输速率并保持在将会触发丢失事件的速率以下。这样做的目的在于取得资源有效利用率的同时避免网络拥塞。通常，TCP 拥塞控制的思想就是为每个 TCP 头部确定从发送者到接收者路由路径上的可用带宽，所以它知道发送多少分段是安全的。</p>
+<p>RFC 793 中定义了 TCP 的基本结构：即基于窗口的流量控制和粗粒度的重传定时器（此时并没有定义拥塞控制）。随后互联网经历了<em>拥塞崩溃</em>，此时发布的 TCP Tahoe，增加了由 Van Jacobson 提出的<em>拥塞避免</em>和<em>快速重传</em>方案。后来，RFC 2001 对（在 Tahoe 基础上）添加了<em>快速恢复</em>的 TCP Reno 进行标准化。在对 Reno 版本出现的问题的解决过程中又迭代了很多 TCP 版本，如 NewReno，SACK/FACK 和 Vegas 等等。如果想要了解整个迭代过程，建议把 RFC 的 TCP 系列都拿出来读读（RFC 7414 和 RFC 7805 列出了该系列）。</p>
+<p>另外要说明的是，拥塞控制的基本算法包括慢开始（slow-start）、拥塞避免（congestion avoidance）、快重传（fast retransmit）和快恢复（fast recovery），可在 RFC 5681 中查阅，但涉及比较多的实现细节比如如何设置初始拥塞窗口值等等，但个人能力有限，所以下文中的具体实现均来自林书，读者还是先读读谢书中的相关小节来体验一遍以上四种算法比较好。</p>
+<blockquote>
+<p>谢书只讲了 Reno 版本，但图示和解释容易理解，林书讲得更细致，涉及多个 TCP 版本</p>
+</blockquote>
+<h3 id="4-3-TCP-Tahoe-拥塞控制"><a href="#4-3-TCP-Tahoe-拥塞控制" class="headerlink" title="4.3 TCP Tahoe 拥塞控制"></a>4.3 TCP Tahoe 拥塞控制</h3><blockquote>
+<p>论文 <em>A Comparative Analysis of TCP Tahoe, Reno, New-Reno, SACK and Vegas</em> 中提到的 Tahoe 版本与林书提到的不同，前者没有快速重传，其它与林书的版本一致。注意，快速重传是要求接收方<strong>不能</strong>在发送数据时才捎带（piggyback）确认，而是要<strong>立即发送确认</strong>，即便是收到了失序的报文段也要立即发出对已收到的报文段的重复确认。如果接收方只使用累积确认，则易导致发送方<em>回退N（Go back N）</em>。注意，累积确认只对最近按序到达的最后一个分组进行确认，对中间错序到达的分组不会进行确认。累积确认的优点是 ACK 丢失也不必重传，但缺点是不能向发送方反映出接收方已经正确收到的所有分组的信息。</p>
+</blockquote>
+<p>Tahoe 使用拥塞窗口（cwnd）控制在一个往返时间（RTT）内传输的数据量，使用最大窗口（mwnd）约束 cwnd 的最大值。Tahoe 以 <code>snd.nxt - snd.una</code> 的形式估计未经确认的数据量 awnd，<strong>当 awnd 小于 cwnd 时，发送方继续发送新的分组；否则，发送方停止发送</strong>。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> From RFC 793</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SND.UNA - send unacknowledged</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SND.NXT - send next</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SND.WND - send window</span></span><br><span class="line">Send Sequence Space</span><br><span class="line">    1         2          3          4</span><br><span class="line">----------|----------|----------|----------</span><br><span class="line">        SND.UNA    SND.NXT    SND.UNA</span><br><span class="line">                            +SND.WND</span><br><span class="line"></span><br><span class="line">1 - old sequence numbers which have been acknowledged</span><br><span class="line">2 - sequence numbers of unacknowledged data</span><br><span class="line">3 - sequence numbers allowed for new data transmission</span><br><span class="line">4 - future sequence numbers which are not yet allowed</span><br></pre></td></tr></table></figure>
+
+<p>Tahoe 的控制方案可分为四种状态，转换图如下：</p>
+<!-- <center><img src="https://gitee.com/kaijietti/image-host/raw/master/20210323155224.png" width=80%/></center> -->
+
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210323155224.png" alt="TCP Tahoe 拥塞控制算法"></p>
+<p><strong>慢启动</strong>：慢启动旨在短短的几个 RTT 时间内迅速探测到可用的带宽。当一个连接启动或重传发生时，通过将 cwnd 的初始值设置成一个分组开始慢启动状态，即 MSS。发送方通过每次只要收到一个 ACK 时就添加一个 MSS 到 cwnd 中而呈<em>指数地</em>增加 cwnd。经过每个 RTT（一个传输轮次经历的时间 RTT 并非恒定数值） 后，如果所有的 ACK 正确及时地收到，就加倍 cwnd，如下图所示，慢启动并不慢。</p>
+<!-- <center><img src="https://gitee.com/kaijietti/image-host/raw/master/20210323191139.png" width=80%/></center> -->
+
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210323191139.png" alt="慢启动过程传输分组演示图"></p>
+<p>当 cwnd 达到慢启动的阈值 ssthresh 时，TCP 进入拥塞避免状态。注意，当发起一次连接时，将 ssthresh 设置为其数据类型下的最大值，表示不限制慢启动带宽探测。在慢启动状态下，如果收到三个重复的 ACK 或者出现 RTO（重传超时）会分别进入快速重传状态或重传超时状态。</p>
+<p><strong>拥塞避免</strong>：拥塞避免的目的在于<em>缓慢地</em>探测可用带宽，但<em>迅速地</em>响应拥塞事件。它遵循<strong>加法增加乘法减少（AIMD）</strong> 的原则。由于慢启动状态中的窗口大小呈指数增加，所以以此不断增加的速度发送分组就会很快导致网络拥塞。为了避免这种情况，当 cwnd 超过 ssthresh 时就会启动拥塞避免状态。在这种状态下，一旦收到一个 ACK，cwnd 就会增加 1/cwnd 个分组，从而使得窗口的大小呈线性地增长。因此，cwnd 通常没经过一个 RTT 后就会大致增加 1，如下图所示：</p>
+<!-- <center><img src="https://gitee.com/kaijietti/image-host/raw/master/20210323195001.png" width=80%/></center> -->
+
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210323195001.png" alt="拥塞避免期间传输分组演示图"></p>
+<p>拥塞避免状态和在慢启动状态下一样，如果收到三个重复的 ACK 或者出现 RTO（重传超时）会分别进入快速重传状态或重传超时状态。</p>
+<blockquote>
+<p>谢书：前面的描述中 cwnd 的单位是报文段个数，实际上应当是字节为单位，即 cwnd 增加 1 代表拥塞窗口增加一个 MSS 的大小，单位为字节。对于 <code>cwnd += 1/cwnd</code>，实现上以字节为单位时可以写为：<code>cwnd += (MSS*MSS)/cwnd</code>。此处书本的举例并不正确，因为每次增加的字节数并不是常量，且最终每个 RTT 后 cwnd 并不是恰好增加 1。</p>
+</blockquote>
+<p><strong>快速重传</strong>：快速重传的目的是立即传送丢失的分组而无需等待重传定时器超时。重复的 ACK 是由于丢失的分组，或者由于重复的分组，或者由于在接收方收到无序的分组所造成的。在丢失分组的情况下，发送方应该重传。由于发送方不知道什么原因导致出现重复的 ACK，所以快速重传采用启发式算法：如果接收到三个或更多的重复 ACK，那么 TCP 发送方就假定已经发生了分组丢失。随后发送方重传假定丢失的分组，而无需等待一个粗粒度的重传定时器超时。发送方传输了丢失的分组后，根据 AIMD 将 ssthresh 减少为 cwnd/2，将 cwnd 重置为 1 进入慢启动状态。</p>
+<p><strong>重传超时</strong>：重传超时提供最后的也是最慢的重传丢失分组的方法。发送方维护一个重传定时器用来检测 ACK 的超时。如果发生超时，如快速重传状态中的处理，发送方将 ssthresh 减少为 cwnd/2，将 cwnd 重置为 1 进入慢启动状态。</p>
+<h3 id="4-4-TCP-Reno-拥塞控制"><a href="#4-4-TCP-Reno-拥塞控制" class="headerlink" title="4.4 TCP Reno 拥塞控制"></a>4.4 TCP Reno 拥塞控制</h3><p>TCP Reno 通过将<em>快速恢复</em>状态引入分组丢失后的后续恢复阶段，扩展了 Tahoe 拥塞控制方案。<strong>快速恢复将注意力集中在 在网络管道中保留足够未经确认的分组，以便保留 TCP 的自同步行为（self-clocking）</strong>。</p>
+<blockquote>
+<p>关于网络管道和 TCP 自同步行为将在后面的性能问题小节介绍。可以暂时把自同步行为简化成由接收方发送的 ACK 驱动发送方发送下一个分组。</p>
+</blockquote>
+<p>当执行快速重传时，TCP Reno 将 ssthresh 设置为 cwnd/2，然后将 cwnd 设置为 ssthresh+3，此处的 <code>+3</code> 是由于目前三个重复的 ACK。</p>
+<p>这里的 cwnd 值的设置值得品味：每一个收到的重复 ACK 实际上意味着某一个分组已经退出网络管道（在接收方缓存中），因此对于触发快速重传的三个重复 ACK，更正确的思路是将 awnd 减 3，其中 awnd 是在网络管道中未经确认的分组的数量。然而，在 Reno 中，awnd 的计算是<code>snd.nxt - snd.una</code>，在此状态下是固定不变的，因此 Reno 增加 cwnd 而不是减少 awnd 来达到同样的目的。当收到重传假定丢失分组的确认时，cwnd 重置为老的 cwnd 值的一半。TCP Reno 的状态转换图如下（红字部分为对原书配图的修改）：</p>
+<!-- ![TCP Reno 拥塞控制算法](https://gitee.com/kaijietti/image-host/raw/master/20210324165112.png) -->
+
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210324184523.png" alt="TCP Reno 拥塞控制算法"></p>
+<p>快速恢复状态的引入是因为我们不仅能从多个重复 ACK 推断出某分组的大概率丢失，还能进一步假定此前窗口发送的某些分组已经到达接收方（否则不太可能会有多个重复 ACK）。因此，图中的快速恢复状态中，每接收到一个重复 ACK，我们递增 cwnd，从而可以发送新的分组（想一想前面提到的如果 cwnd 小于 awnd 我们就无法发送分组），所以，即便是分组丢失，Reno 也可以让网络管道继续交换分组，而反观 Tahoe，它在快速重传状态时设置 cwnd 为 1，使得在重传的分组的 ACK 未到达发送方前，发送方都在干等（因为 cnwd=1 &lt; awnd 无法发送分组）。</p>
+<blockquote>
+<p>上面的解释也说明了为什么 Reno 保留了 TCP 的自同步行为，因为 Tahoe 的拥塞窗口的设置不妥，使得后续到达的<strong>重复 ACK</strong> 并没有办法让新的分组发出。注意，这里说的是重复 ACK，如果是新的 ACK，它能够驱使 awnd 缩小到比 cwnd 还小从而能够继续发送新分组。</p>
+</blockquote>
+<p>状态图中快速恢复状态的行为可以结合下图进行理解：</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210324170522.png" alt="TCP Reno 对 cwnd 值的设置解释图"></p>
+<p>为了更进一步阐述区别，林书提供了一个示例对比 Tahoe 与 Reno 的行为区别，我认为特别有必要学习：</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210324172839.png" alt="TCP Tahoe 拥塞控制的例子"></p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210324173815.png" alt="TCP Reno 拥塞控制的例子"></p>
+<!-- 在两幅例子的步骤 4 中，Tahoe 不能发送任何新的分组了，但 Reno 却可以，因此很明显，在分组丢失后 TCP Reno 利用快速恢复得到更高效的传输。但是，Reno 存在多分组丢失（Multiple Packet Loss，MPL）问题，降低了其性能，对于该问题的描述以及解决方案将在**TCP 性能问题以及增强**小节给出。 -->
+
+<p>在两幅例子的步骤 4 中，Tahoe 不能发送任何新的分组了，但 Reno 却可以，因此很明显，在分组丢失后 TCP Reno 利用快速恢复得到更高效的传输。但是，Reno 存在多分组丢失（Multiple Packet Loss，MPL）问题，降低了其性能，书本提到的四种解决方案分别是 New Reno、SACK、FACK 和 Vegas，由于我还未能完全理解，请读者自行查阅。</p>
+<h2 id="5-定时器管理"><a href="#5-定时器管理" class="headerlink" title="5 定时器管理"></a>5 定时器管理</h2><p>每个 TCP 连接都会维护一组定时器以驱动其状态机。本节介绍 TCP 的定时器管理，其中详细研究了两种强制的定时器，重传定时器和坚持定时器，以及一个可选的定时器，保活定时器。</p>
+<h3 id="5-1-连接定时器"><a href="#5-1-连接定时器" class="headerlink" title="5.1 连接定时器"></a>5.1 连接定时器</h3><p>为了建立一条新的 TCP 连接，发送方发送一个 SYN 分组，并同时启动连接定时器。若 SYN 分组丢失，在定时器超时后会发送方会重发 SYN 分组直到达到最大重发次数或者收到接收方的确认。</p>
+<h3 id="5-2-重传定时器"><a href="#5-2-重传定时器" class="headerlink" title="5.2 重传定时器"></a>5.2 重传定时器</h3><p>重传定时器在TCP发送数据时设定，在计时器超时后没有收到返回的确认ACK，发送端就会重新需要重传的分组。超时重传时间的设置十分重要，如果设置的过短，就会引起很多分组的不必要的重传，使网络负荷增大。但若把超时重传时间设置得过长，则又使网络的空闲时间增大，降低了吞吐量和传输效率。TCP 采用自适应重传机制来设置超时重传时间。对于重传超时的估计，请查阅 RFC 6928。</p>
+<!-- 发现无论是哪本书，其历史追溯过程我都无法找到，并且与RFC的描述有不少出入
+所以可能这部分内容要换成对 RFC 6298 的解读，不追溯历史发展了，费劲。
+ -->
+
+<!-- RFC 6298 -->
+
+<!-- **原始算法**
+
+原始算法的基本思想是维护一个 RTT 的 -->
+
+<h3 id="5-3-延迟-ACK-定时器"><a href="#5-3-延迟-ACK-定时器" class="headerlink" title="5.3 延迟 ACK 定时器"></a>5.3 延迟 ACK 定时器</h3><p>关于延迟 ACK，RFC 1122 有相关讨论：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">4.2.3.2  When to Send an ACK Segment</span><br><span class="line">A host that is receiving a stream of TCP data segments can</span><br><span class="line">increase efficiency in both the Internet and the hosts by</span><br><span class="line">sending fewer than one ACK (acknowledgment) segment per data</span><br><span class="line">segment received; this is known as a &quot;delayed ACK&quot; [TCP:5].</span><br><span class="line"></span><br><span class="line">A TCP SHOULD implement a delayed ACK, but an ACK should not</span><br><span class="line">be excessively delayed; in particular, the delay MUST be</span><br><span class="line">less than 0.5 seconds, and in a stream of full-sized</span><br><span class="line">segments there SHOULD be an ACK for at least every second</span><br><span class="line">segment.</span><br><span class="line"></span><br><span class="line">DISCUSSION:</span><br><span class="line">A delayed ACK gives the application an opportunity to</span><br><span class="line">update the window and perhaps to send an immediate</span><br><span class="line">response.  In particular, in the case of character-mode</span><br><span class="line">remote login, a delayed ACK can reduce the number of</span><br><span class="line">segments sent by the server by a factor of 3 (ACK,</span><br><span class="line">window update, and echo character all combined in one</span><br><span class="line">segment).</span><br><span class="line"></span><br><span class="line">In addition, on some large multi-user hosts, a delayed</span><br><span class="line">ACK can substantially reduce protocol processing</span><br><span class="line">overhead by reducing the total number of packets to be</span><br><span class="line">processed [TCP:5].  However, excessive delays on ACK&#x27;s</span><br><span class="line">can disturb the round-trip timing and packet &quot;clocking&quot;</span><br><span class="line">algorithms [TCP:7].</span><br><span class="line"></span><br><span class="line">[TCP:5] &quot;Window and Acknowledgment Strategy in TCP,&quot; D. Clark, RFC-813,</span><br><span class="line"><span class="code">     July 1982.</span></span><br><span class="line"><span class="code">[TCP:7] &quot;Congestion Avoidance and Control,&quot; V. Jacobson, ACM SIGCOMM-88,</span></span><br><span class="line"><span class="code">     August 1988.</span></span><br></pre></td></tr></table></figure>
+
+<p>延迟 ACK 的目的是提高网络传输的效率，防止过多的小分组占用带宽。接收方必须等待延迟 ACK 定时器超时才发送 ACK，如果在此期间有数据需要发送，那么它就用捎带方法发送 ACK。</p>
+<blockquote>
+<p>前文列出 RFC 1122 的相关讨论是因为我目前还没有弄懂延迟 ACK 对前面的拥塞控制算法的快速重传要求立即发送 ACK 是否有很大的影响。还有待进一步学习。</p>
+</blockquote>
+<h3 id="5-4-坚持定时器（persistence-timer）"><a href="#5-4-坚持定时器（persistence-timer）" class="headerlink" title="5.4 坚持定时器（persistence timer）"></a>5.4 坚持定时器（persistence timer）</h3><blockquote>
+<p>RFC 6429:  <em>It is extremely important to remember that ACK (acknowledgment) segments that contain no data are not reliably transmitted by TCP.</em> 翻译过来是，TCP 不对不含数据的 ACK 分组保障可靠传输，这其实是说如果对纯 ACK 分组也进行如正常数据分组需要被确认的操作，那么将会导致系列问题如确认的确认、确认的确认的确认……。</p>
+</blockquote>
+<p>TCP 坚持定时器只是为了避免以下死锁：接收方发送一个接收窗口大小为 0 的确认告诉发送方等待，而后接收方更新并通告它的窗口大小但该分组丢失。现在双方都在等待对方做出行动，这就是发生了死锁。</p>
+<blockquote>
+<p>这里可能有疑惑的地方就是，为什么接收方自己不会因为重传定时器超时而重发更新窗口发小的分组呢？后来在查阅资料时发现对于重传定时器起作用的分组是带数据的分组（带数据分组应该拓宽为消耗序列号的分组，如 SYN+ACK 分组就算不带数据但由于 SYN 消耗序列号它也会启动重传定时器），这么做的目的是在定时器超时前期待接收到对该分组的确认。若对不消耗序列号的分组也进行确认，就会陷入前面引用中提到的问题（确认的确认）。而对于通知窗口更新的分组而言，它只是变动了窗口值的分组，并不存在特殊的标志位标记（于是不能像 SYN 之类的一样指明这类分组需要被确认）区分于纯 ACK 分组（那窗口更新的分组就是一个纯 ACK 分组），所以它也是不会被确认的（如果我的理解有误请指正，谢谢），那么也不会启动定时器让它能够超时重传。</p>
+</blockquote>
+<p>所以，在发送方收到窗口大小为 0 的确认时，可以启动坚持定时器来周期性地向接收方发送一个零窗口探测分组（携带 1 个字节的数据，目的是为了触发其响应），对于该分组的确认就带回了窗口大小，如果仍旧是 0 ，那么坚持定时器就再次重置；如果不为 0，死锁的局面被打破，进而可以发送数据。</p>
+<blockquote>
+<p>谢书注：TCP 规定，即使设置为零窗口，也必须接收以下几种分组：零窗口探测分组，确认分组和携带紧急数据的分组。<br>拉书注：由发送方解决该问题的原因是：TCP 被设计成接收方尽可能地简单，即它只响应从发送方来的分组，而它自己从不发起任何行动。这是公认的（尽管不是通用的）协议设计规则的一个例子，称为聪明的发送方/笨拙的接收方（smart sender / dumb receiver）规则。</p>
+</blockquote>
+<h3 id="5-5-保活定时器"><a href="#5-5-保活定时器" class="headerlink" title="5.5 保活定时器"></a>5.5 保活定时器</h3><p>通过 TCP/IP 检测已经崩溃的系统很困难。如果应用程序不发送任何信息，TCP 就需要在连接上传输任何信息，TCP/IP 使用的许多介质（以太网）并不提供可靠的方法来判断一个特定的主机是否打开。如果一台服务器没有从客户机收到什么。那么很可能：</p>
+<ul>
+<li>它什么都没法送</li>
+<li>在服务器和客户机之间的网络可能发生了故障</li>
+<li>服务器和客户机的网络接口可能断开了</li>
+<li>客户机已经崩溃</li>
+</ul>
+<p>其中，网络故障经常是暂时的，那么不应该以放弃 TCP 连接而告终。</p>
+<p>保活是 API 套接字的一个特征，它周期性地在空闲的链路上发送空分组：</p>
+<ul>
+<li>如果远程系统仍然正常，本地系统将会得到一个确认</li>
+<li>如果远程系统已经重启，本地系统将会得到一个 RST 分组释放该连接</li>
+<li>如果远程系统已经崩溃，本地系统将会得到超时</li>
+</ul>
+<p>保活定时器设置的时长较长，目的不是立即检测对端系统，而是让不需要的资源不永远地占用。<strong>所以如果需要更快地检测对端系统，就应该在应用层协议中实现它</strong>。</p>
+<h3 id="5-6-FIN-WAIT-2-定时器"><a href="#5-6-FIN-WAIT-2-定时器" class="headerlink" title="5.6 FIN_WAIT_2 定时器"></a>5.6 FIN_WAIT_2 定时器</h3><p>执行主动关闭的一方在发送完 FIN 分组并接收到对该分组的确认时，TCP 进入 FIN_WAIT_2 状态。倘若此时没有该定时器并且连接另一方宕机或两方之间的网络中断，该连接将会一直无法被关闭，导致系统资源的浪费。FIN_WAIT_2 定时器能够避免一条链接一直停留在 FIN_WAIT_2 状态，如果在该定时器超时的时候还是没收到被动关闭一方的 FIN 分组，直接释放该连接。</p>
+<h3 id="5-7-TIME-WAIT-定时器"><a href="#5-7-TIME-WAIT-定时器" class="headerlink" title="5.7 TIME_WAIT 定时器"></a>5.7 TIME_WAIT 定时器</h3><p>该定时器用于 TIME_WAIT 状态以便进入 CLOSED 状态，关于该定时器的作用在前面<strong>连接释放</strong>小节已经说明。</p>
+<h2 id="6-TCP-性能问题以及增强"><a href="#6-TCP-性能问题以及增强" class="headerlink" title="6 TCP 性能问题以及增强"></a>6 TCP 性能问题以及增强</h2><p>基于 TCP 应用的传送方式可以分为：<em>交互式连接</em>和<em>批量数据传输</em>。这两种数据传送方式有各自的性能问题，书本分别提到了糊涂窗口综合症（Silly Window Syndrome，SWS）和 TCP Reno 的多分组丢失问题（Multiple Packet Loss，MPL）。</p>
+<h3 id="6-1-糊涂窗口综合症"><a href="#6-1-糊涂窗口综合症" class="headerlink" title="6.1 糊涂窗口综合症"></a>6.1 糊涂窗口综合症</h3><p>对于交互式事务，使用滑动窗口进行流量控制时 TCP 会经历一种状态：糊涂窗口综合症。当处于此状态时，同样多的数据量，在连接中会发出更多的小分组而不是完整分组，而由于每个分组都由固定大小的头部开销，更多的小分组则意味着带宽的浪费。</p>
+<p>SWS 状态可由任何一端引起：</p>
+<ul>
+<li>发送端可以发送一个小的分组，而不等待发送应用程序发送的更多数据以便以完整尺寸的分组来发送。例如 telnet 的远程登陆：因为在远程登陆中每次按键都会产生一个分组和一个 ACK，通过 WAN（广域网）很长的往返时间，远程登陆会浪费全球共享的 WAN 带宽。</li>
+<li>接收端可以通告一个小于完整分组大小的窗口，而不等待片刻以便能从缓冲区中移动更多数据到接受应用程序从而腾出缓冲空间。</li>
+</ul>
+<p><strong>解决方案</strong></p>
+<p>为了阻止发送端引起 SWS，可用 Nagle 算法，该算法能够在带宽饱和时减少发送分组的数量：除非此时没有已发出的数据（或者说，未经确认的数据），否则不发送小分段。相反，Nagle 将小的分段收集到一起当 ACK 到达时再一起发送。Nagle 算法的优秀归功于它的<em>自同步（self-clocking）行为</em> : 如果 ACK 回来得很快，带宽就可能很大从而分组发送得也快；如果 ACK 回来得很慢，这意味着窄带路径，此时 Nagle 算法就会通过发送完整大小的分段来减少小分段的数量。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> there <span class="keyword">is</span> new data to send</span><br><span class="line">    <span class="keyword">if</span> window size &gt;= MSS <span class="keyword">and</span> available data &gt;= MSS</span><br><span class="line">        send complete MSS segment</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">if</span> there <span class="keyword">is</span> outstanding data <span class="keyword">and</span> queued data live time &lt;threshold  </span><br><span class="line">            enqueue data <span class="keyword">in</span> the buffer until an ACK <span class="keyword">is</span> received</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            send  data  immediately</span><br><span class="line">        endif  </span><br><span class="line">    endif</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<p>为了防止接收端进入 SWS 状态，可用 David D. Clark 提出的解决方案：通告声明会被延迟直到接收方缓冲区有一半是空的或者能够装下整个分段，从而为发送方保证一个大窗口通告，当然延迟也是受限制的。</p>
+<h3 id="6-2-多分组丢失问题"><a href="#6-2-多分组丢失问题" class="headerlink" title="6.2 多分组丢失问题"></a>6.2 多分组丢失问题</h3><p>在 Reno 中，当一个窗口发生多分组丢失时，接收方总是利用重复 ACK 作为响应，因为发送方假设每个 RTT 最多只有一个新的丢失。此时，发送方必须花费多个 RTT 来解决所有这些丢失。同时，重传超时更加频繁，因为尽管有许多未被确认的分组等待重传，但只有少数的分组（由于快速重传触发的 cwnd 的减少而限制）才能发送。下面是 MPL 问题的一种表现。</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210405194723.png" alt="Reno 的多分组丢失问题"></p>
+<p>注意，挡在一个数据窗口中丢失多个分组时，Reno 并不总是超时。当 cwnd 非常大的情况下发生多个丢失事件时，任何部分 ACK 不仅使 Reno 退出快速恢复，而且还会由于另外一批三个重复的 ACK 而触发另一个快速重传。这的确符合要求，尽管它会减慢丢失恢复。但是，如果太多的分组在一个 RTT 内丢失，那么将会引起 cwnd 在下一个 RTT 内减半很多次以至于太少的未经确认的报文在管道中而不能触发下一次快速重传，Reno 将超时，这将进一步延长丢失恢复。</p>
+<p><strong>解决方案 1：TCP NewReno</strong></p>
+<p>NewReno 修改了 Reno 快速恢复阶段以缓解 MPL 问题。仅当发送方在检测到第一个丢失分组之前接收到最后发送分组的 ACK 时，它才会脱离原始的快速恢复。在该终止点之前的非重复 ACK 都被当做部分 ACK。</p>
+<p>Reno 将部分 ACK 当作是丢失分组的以此成功重传，因此发送方回到拥塞避免状态以便发送新的分组。相反，NewReno 认为这是一种进一步发生分组丢失的信号，因此发送方立即重传丢失的分组。当部分 ACK 到达后，发送方通过</p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210405212721.png" alt="TCP NewReno 处理 MPL 问题 (1)"></p>
+<p><img src="https://gitee.com/kaijietti/image-host/raw/master/20210405220039.png" alt="TCP NewReno 处理 MPL 问题 (2)"></p>
+<p><strong>解决方案 2：TCP SACK</strong></p>
+<p><strong>解决方案 3：TCP FACK</strong></p>
+<p><strong>解决方案 4：TCP Vegas</strong></p>
+<h2 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h2><p>在学习过程中，发现了许多优秀的学习资源：</p>
+<ul>
+<li><strong>An Introduction to Computer Networks</strong>：<em><a href="http://intronetworks.cs.luc.edu/current/html/index.html#">http://intronetworks.cs.luc.edu/current/html/index.html#</a></em></li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+</search>
